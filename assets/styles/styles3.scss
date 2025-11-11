@@ -1,0 +1,162 @@
+@import "reset";
+@import "mixin";
+@import "css-variables";
+
+body {
+    grid: 
+    "nav-area1" 30px
+    "nav-area2" 50px
+    "main-area" auto
+    "footer-area" auto
+    / 100%
+    ;
+
+    main {
+        padding: 40px 0;
+        grid-area: main-area;
+        background-image: url(../images/facial-bg-1400x1400.jpg);
+        @include bgImg ();
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 40px;
+        
+        .price-list {
+            width: 80%;
+            padding: 1em;
+            border: 1px solid $lightBg;
+            background-color: $lightBgBlur;
+            border-radius: 20px;
+            display: grid;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover; 
+            
+            .title {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                h1 {
+                    @include mainTitle ();
+                }
+            }
+
+            .tables {
+                display: grid;
+                justify-items: center;
+                @include text ();
+
+                table {
+                    width: 100%;
+                    margin-bottom: 20px;
+                    border-spacing: 10px;
+
+                    th {
+                        background-color: $lightBg;
+                        width: 100%;
+                        padding: 8px;
+                    }
+                    
+                    tr td:nth-child(1) {
+                        background-color: $darkBg;
+                        width: 70%;
+                        padding: 8px;
+                    }
+                    
+                    tr td:nth-child(2) {
+                        background-color: $primary;
+                        width: 30%;
+                        padding: 8px;
+                    }
+                }
+
+                table:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+
+    }
+}
+
+@media screen and (min-width:576px) {
+    body {
+        grid: 
+        "nav-area1" 30px
+        "nav-area2" 60px
+        "main-area" auto
+        "footer-area" auto
+        / 100%
+        ;
+
+        main {
+            grid-area: main-area;
+
+            .price-list {
+                width: 60%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:768px) {
+    body {
+        grid: 
+        "nav-area1" 30px
+        "nav-area2" 70px
+        "main-area" auto
+        "footer-area" auto
+        / 100%
+        ;
+
+        main {
+            grid-area: main-area;
+
+            .price-list {
+                width: 60%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:992px) {
+    body {
+        grid: 
+        "nav-area1" 30px
+        "nav-area2" 80px
+        "main-area" auto
+        "footer-area" auto
+        / 100%
+        ;
+
+        main {
+            grid-area: main-area;
+
+            .price-list {
+                width: 50%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1200px) {
+    body {
+        grid: 
+        "nav-area1" 30px
+        "nav-area2" 90px
+        "main-area" auto
+        "footer-area" auto
+        / 100%
+        ;
+
+        main {
+            grid-area: main-area;
+
+            .price-list {
+                width: 40%;
+            }
+        }
+    }
+}

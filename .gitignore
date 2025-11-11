@@ -1,0 +1,18 @@
+# CSS map fájlok
+*.css.map
+
+# IDE / szerkesztő mappák
+.vscode/
+.idea/
+
+# OS fájlok
+.DS_Store
+Thumbs.db
+
+# Build / dist mappák
+/dist/
+/build/
+
+# Egyéb ideiglenes fájlok
+*.tmp
+*.log
