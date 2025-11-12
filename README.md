@@ -15,7 +15,7 @@ Ez a weboldal egy **fiktív kozmetikai szalon** bemutatóoldala, amelyet **első
 A vizsgamunka célja egy **modern, reszponzív és szemantikailag helyes weboldal** készítése, amely több aloldalt is tartalmaz és bemutatja a **HTML, CSS, SASS, JavaScript, jQuery** alapismereteimet.
 A weboldal **mobilra, tabletre és desktop nézetre** is optimalizált.
 A reszponzivitást **SASS media query-k, mixinek és rugalmas CSS layout-ok (Grid, Flexbox)** biztosítják.
-A HTML és CSS kódot W3C Validator [https://validator.w3.org/] segítségével ellenőriztem.
+A HTML és CSS kódot [W3C Validator](https://validator.w3.org/) segítségével ellenőriztem.
 
 ## Felépítés
 
@@ -39,7 +39,7 @@ A weboldal az alábbi oldalakból áll:
 
 ## Tartalmi elemek
 
-- **Képek:** Saját készítésű favicon és szabad felhasználású forrásból származő képek Pexels [https://www.pexels.com/hu-hu/] oldalról.
+- **Képek:** Saját készítésű favicon és szabad felhasználású forrásból származő képek [Pexels](https://www.pexels.com/hu-hu/) oldalról.
 - **Űrlap:** Időpontfoglalási form, mezőellenőrzéssel.
 - **Táblázat:** Árlista a szolgáltatásokról
 - **Menü:** Reszponzív navigációs sáv
