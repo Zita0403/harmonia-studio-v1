@@ -1,5 +1,5 @@
 <p align="right">
-🌐 [Magyar verzió](README.md)
+  🌐 <a href="README.md">Magyar version</a>
 </p>
 
 # Exam Project - Harmony Studio

@@ -1,5 +1,5 @@
 <p align="right">
-🌐 [English version](README_EN.md)
+  🌐 <a href="README_EN.md">English version</a>
 </p>
 
 # Vizsgamunka - Harmónia Stúdió
