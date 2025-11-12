@@ -1,4 +1,10 @@
+<p align="right">
+🌐 [English version](README_EN.md)
+</p>
+
 # Vizsgamunka - Harmónia Stúdió
+
+**Nyelv:** HU Magyar | [GB English](README_EN.md)
 
 ![Harmónia Stúdió kezdőlap képernyőképe](assets/images/cosmetic_website_v1.png)
 
@@ -33,7 +39,7 @@ A weboldal az alábbi oldalakból áll:
 
 ## Tartalmi elemek
 
-- **Képek:** Saját készítésű favicon és szabad felhasználású forrásból származő képek Pexels [https://validator.w3.org/] oldalról.
+- **Képek:** Saját készítésű favicon és szabad felhasználású forrásból származő képek Pexels [https://www.pexels.com/hu-hu/] oldalról.
 - **Űrlap:** Időpontfoglalási form, mezőellenőrzéssel.
 - **Táblázat:** Árlista a szolgáltatásokról
 - **Menü:** Reszponzív navigációs sáv
