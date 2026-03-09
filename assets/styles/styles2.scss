@@ -1,6 +1,6 @@
-@import "reset";
-@import "mixin";
-@import "css-variables";
+@use "reset" as *;
+@use "mixin" as *;
+@use "css-variables" as *;
 
 body {
     grid: 
