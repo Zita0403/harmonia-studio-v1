@@ -524,10 +524,25 @@ body nav .hamburger-menu {
   display: block;
   margin-right: 20px;
 }
+body nav .hamburger-menu .fa-bars,
+body nav .hamburger-menu .fa-times {
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: middle;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  filter: brightness(0) saturate(100%) invert(0%) sepia(98%) saturate(7%) hue-rotate(319deg) brightness(92%) contrast(98%);
+}
 body nav .hamburger-menu .fa-bars {
-  display: block;
+  background-image: url(../webfonts/bars-solid-full.svg);
+  display: inline-block;
 }
 body nav .hamburger-menu .fa-times {
+  background-image: url(../webfonts/xmark-solid-full.svg);
   display: none;
 }
 body nav .hamburger-menu .fa-bars:hover, body nav .hamburger-menu .fa-times:hover {
@@ -537,7 +552,7 @@ body nav .hamburger-menu.open .fa-bars {
   display: none;
 }
 body nav .hamburger-menu.open .fa-times {
-  display: block;
+  display: inline-block;
 }
 body nav .hamburger-main-menu {
   padding: 0;
@@ -564,8 +579,24 @@ body nav .hamburger-main-menu li a {
   display: block;
   padding: 10px;
 }
+body nav .hamburger-main-menu li a .fa-chevron-right {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url(../webfonts/chevron-right-solid-full.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: middle;
+  filter: brightness(0) saturate(100%) invert(0%) sepia(98%) saturate(7%) hue-rotate(319deg) brightness(92%) contrast(98%);
+  padding-left: 10px;
+}
 body nav .hamburger-main-menu > li:hover > a {
   color: bisque;
+  transition: all 0.2s ease-in-out;
+}
+body nav .hamburger-main-menu > li:hover > a .fa-chevron-right {
+  filter: brightness(0) saturate(100%) invert(83%) sepia(35%) saturate(298%) hue-rotate(332deg) brightness(104%) contrast(104%);
   transition: all 0.2s ease-in-out;
 }
 body nav .hamburger-main-menu .hamburger-submenu {
@@ -577,11 +608,8 @@ body nav .hamburger-main-menu .hamburger-submenu {
   display: none;
 }
 body nav .hamburger-main-menu .hamburger-submenu > li:hover > a {
-  color: bisque;
+  color: rgb(255, 228, 196);
   transition: all 0.2s ease-in-out;
-}
-body nav .hamburger-main-menu .fa-chevron-right {
-  padding-left: 10px;
 }
 body footer {
   grid-area: footer-area;

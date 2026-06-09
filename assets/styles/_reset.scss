@@ -164,11 +164,27 @@ body {
             display: block;
             margin-right: 20px;
 
+            .fa-bars,
+            .fa-times {
+                width: 30px;                 
+                height: 30px;
+                background-size: contain;    
+                background-repeat: no-repeat;
+                background-position: center;
+                vertical-align: middle;      
+                margin: 0 5px;
+                cursor: pointer;
+                transition: all 0.2s ease-in-out;
+                filter: brightness(0) saturate(100%) invert(0%) sepia(98%) saturate(7%) hue-rotate(319deg) brightness(92%) contrast(98%);
+            }
+
             .fa-bars {
-                display: block;
+                background-image: url(../webfonts/bars-solid-full.svg);
+                display: inline-block;
             }
                     
             .fa-times {
+                background-image: url(../webfonts/xmark-solid-full.svg);
                 display: none;
             }
 
@@ -182,7 +198,7 @@ body {
         }
                 
         .hamburger-menu.open .fa-times {
-            display: block;
+            display: inline-block;
         }
 
         .hamburger-main-menu {
@@ -206,11 +222,29 @@ body {
                 font-size: 0.9rem;
                 display: block;
                 padding: 10px;
+
+                .fa-chevron-right {
+                    display: inline-block;
+                    width: 24px;
+                    height: 24px;
+                    background-image: url(../webfonts/chevron-right-solid-full.svg);
+                    background-size: contain;    
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    vertical-align: middle;      
+                    filter: brightness(0) saturate(100%) invert(0%) sepia(98%) saturate(7%) hue-rotate(319deg) brightness(92%) contrast(98%);
+                    padding-left: 10px;
+                }
             }
 
             > li:hover > a {
                 color: bisque;
                 transition: all 0.2s ease-in-out;
+
+                .fa-chevron-right {
+                    filter: brightness(0) saturate(100%) invert(83%) sepia(35%) saturate(298%) hue-rotate(332deg) brightness(104%) contrast(104%);
+                    transition: all 0.2s ease-in-out;
+                }
             }
     
             .hamburger-submenu {
@@ -222,13 +256,9 @@ body {
                 display: none;
 
                 > li:hover > a {
-                    color: bisque;
+                    color: rgb(255, 228, 196);
                     transition: all 0.2s ease-in-out;
                 }
-            }
-
-            .fa-chevron-right {
-                padding-left: 10px;
             }
         }
     }
