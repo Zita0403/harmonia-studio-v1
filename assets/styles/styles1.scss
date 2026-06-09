@@ -103,6 +103,15 @@ body {
                     display: grid;
 
                     .fa-seedling {
+                        display: inline-block;
+                        width: 24px;
+                        height: 24px;
+                        background-image: url(../webfonts/seedling-solid-full.svg);
+                        filter: brightness(0) saturate(100%) invert(22%) sepia(43%) saturate(383%) hue-rotate(346deg) brightness(94%) contrast(93%);
+                        background-size: contain;    
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        vertical-align: middle;  
                         margin-right: 10px;
                     }
 
