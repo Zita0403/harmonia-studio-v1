@@ -429,13 +429,23 @@ body div.first-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0;
+  width: 100%;
+  height: 140px;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 100;
 }
 body div.first-nav .contact-info {
   display: flex;
-  justify-content: space-between;
-  gap: 10px;
+  gap: 5px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
   padding: 0;
-  margin-left: 20px;
+  margin-left: 0;
 }
 body div.first-nav .contact-info li {
   list-style-type: none;
@@ -446,6 +456,7 @@ body div.first-nav .contact-info li {
   line-height: 2em;
   color: #4e3b2b;
   font-size: 16px;
+  font-size: 0.9rem;
   cursor: pointer;
 }
 body div.first-nav .contact-info li:first-of-type {
@@ -460,8 +471,8 @@ body div.first-nav .brands-icons {
 }
 body div.first-nav .brands-icons i {
   display: inline-block;
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -724,7 +735,25 @@ body footer .footer-bottom p {
 
 @media screen and (min-width: 576px) {
   body {
-    grid: "nav-area1" 30px "nav-area2" 60px "header-area" 400px "main-area" auto "footer-area" auto/100%;
+    grid-template-rows: 50px 60px auto auto auto;
+  }
+  body div.first-nav {
+    grid-area: nav-area1;
+    height: 70px;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  body div.first-nav .contact-info {
+    flex-direction: row;
+    gap: 10px;
+    padding: 0;
+    margin-left: 20px;
+  }
+  body div.first-nav .contact-info li:first-of-type {
+    border-right: 1px solid #4e3b2b;
+    padding-right: 10px;
   }
   body nav {
     grid-area: nav-area2;

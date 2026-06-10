@@ -58,17 +58,28 @@ body {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 0;
+        width: 100%;
+        height: 140px;
+        position: relative;
+        top: 0;
+        left: 0;
+        z-index: 100;
 
         .contact-info {
             display: flex;
-            justify-content: space-between;
-            gap: 10px;
+            gap: 5px;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
             padding: 0;
-            margin-left: 20px;
+            margin-left: 0;
 
             li {
                 list-style-type: none;
                 @include text ();
+                font-size: 0.9rem;
                 cursor: pointer;
             }
 
@@ -86,8 +97,8 @@ body {
 
             i {
                 display: inline-block;
-                width: 30px;                 
-                height: 30px;
+                width: 24px;                 
+                height: 24px;
                 background-size: contain;    
                 background-repeat: no-repeat;
                 background-position: center;
@@ -380,14 +391,28 @@ body {
 
 @media screen and (min-width:576px) {
     body {
-        grid:
-        "nav-area1" 30px
-        "nav-area2" 60px
-        "header-area" 400px
-        "main-area" auto
-        "footer-area" auto
-        / 100%
-        ;
+        grid-template-rows: 50px 60px auto auto auto;
+
+        div.first-nav {
+            grid-area: nav-area1;
+            height: 70px;
+            flex-direction: row;
+            gap: 20px;
+            justify-content: space-between;
+            align-items: center;
+
+            .contact-info {
+                flex-direction: row;
+                gap: 10px;
+                padding: 0;
+                margin-left: 20px;
+
+                li:first-of-type {
+                    border-right: 1px solid #4e3b2b;
+                    padding-right: 10px;
+                }
+            }
+        }
 
         nav {
             grid-area: nav-area2;
