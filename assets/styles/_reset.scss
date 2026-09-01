@@ -3,22 +3,35 @@
 
 * {
     box-sizing: border-box;
+}
+
+html, body {
     margin: 0;
     padding: 0;
+    width: 100%;
+    max-width: 100vw; 
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
+    background-image: linear-gradient(to right, $primary, $secondary, $primary);
     padding: 0;
     margin: 0;
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
     display: grid;
-    grid: 
-    "nav-area1" 30px
-    "nav-area2" 50px
-    "header-area" 300px
-    "main-area" auto
-    "footer-area" auto
-    / 100%
-    ;
+    grid-template-areas:
+        "nav-area1" 
+        "nav-area2" 
+        "header-area" 
+        "main-area" 
+        "footer-area";
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: repeat(5, auto);
 
     .to-top {
         position: fixed;
@@ -30,7 +43,9 @@ body {
         border-radius: 50%;
         background-color: #F1CA8C;
         background-image: linear-gradient(to right, $lightBgBlur, $darkBgBlur);
-        display: none;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
 
         .fa-chevron-up {
             display: inline-block;
@@ -38,7 +53,7 @@ body {
             background-repeat: no-repeat;
             background-position: center;
             vertical-align: middle;    
-            background-image: url(../webfonts/angle-up-solid-full.svg);
+            background-image: url('../webfonts/angle-up-solid-full.svg');   
             filter: brightness(0) saturate(100%) invert(22%) sepia(43%) saturate(383%) hue-rotate(346deg) brightness(94%) contrast(93%);
             width: 30px;
             height: 30px;
@@ -56,7 +71,7 @@ body {
         grid-area: nav-area1;
         background-image: linear-gradient(to right, $primary, $secondary, $primary);
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
         align-items: center;
         padding: 0;
         width: 100%;
@@ -84,7 +99,7 @@ body {
             }
 
             li:first-of-type {
-                border-right: 1px solid #4e3b2b;
+                border-right: none;
                 padding-right: 5px;
             }
         }
@@ -93,7 +108,7 @@ body {
             display: flex;
             justify-content: space-around;
             gap: 10px;
-            margin-right: 20px;
+            margin: 10px 0;
 
             i {
                 display: inline-block;
@@ -148,8 +163,8 @@ body {
 
         .logo-container-1 {
             margin-left: 20px;
-            width: 50px;
-            height: 50px;
+            width: 65px;
+            height: 65px;
             cursor: pointer;
     
             img {
@@ -172,6 +187,8 @@ body {
         }
     
         .hamburger-menu {
+            background: none;
+            border: none;
             display: block;
             margin-right: 20px;
 
@@ -209,14 +226,14 @@ body {
         }
                 
         .hamburger-menu.open .fa-times {
-            display: inline-block;
+            display: block;
         }
 
         .hamburger-main-menu {
             padding: 0;
             margin: 0;
             position: absolute;
-            top: 50px;
+            top: 65px;
             left: 0;
             width: 100%;
             display: none;
@@ -224,8 +241,9 @@ body {
             backdrop-filter: blur(5px);
                 
             li {
-                text-align: center;
+                text-align: start;
                 position: relative;
+                padding-left: 20px;
             }
 
             li a {
@@ -234,11 +252,11 @@ body {
                 display: block;
                 padding: 10px;
 
-                .fa-chevron-right {
+                .fa-chevron-down {
                     display: inline-block;
                     width: 24px;
                     height: 24px;
-                    background-image: url(../webfonts/chevron-right-solid-full.svg);
+                    background-image: url(../webfonts/chevron-down-solid-full.svg);
                     background-size: contain;    
                     background-repeat: no-repeat;
                     background-position: center;
@@ -252,7 +270,7 @@ body {
                 color: bisque;
                 transition: all 0.2s ease-in-out;
 
-                .fa-chevron-right {
+                .fa-chevron-down {
                     filter: brightness(0) saturate(100%) invert(83%) sepia(35%) saturate(298%) hue-rotate(332deg) brightness(104%) contrast(104%);
                     transition: all 0.2s ease-in-out;
                 }
@@ -261,15 +279,70 @@ body {
             .hamburger-submenu {
                 position: absolute;
                 top: 0;
-                left: 60%;
+                left: 50%;
                 z-index: 100;
-                width: 200px;
+                width: auto;
                 display: none;
 
                 > li:hover > a {
-                    color: rgb(255, 228, 196);
+                    color: bisque;
                     transition: all 0.2s ease-in-out;
                 }
+            }
+
+                .fa-chevron-down {
+                    display: inline-block;
+                    width: 24px;
+                    height: 24px;
+                    background-image: url(../webfonts/chevron-down-solid-full.svg);
+                    background-size: contain;    
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    vertical-align: middle;      
+                    filter: brightness(0) saturate(100%) invert(0%) sepia(98%) saturate(7%) hue-rotate(319deg) brightness(92%) contrast(98%);
+                    padding-left: 10px;
+                }
+        }
+
+        .hamburger-main-menu.open {
+            display: block;
+        }
+    }
+
+    .modal {
+        background-color: #d2ad79;
+        position: fixed;
+        z-index: 100000;
+        bottom: 0;
+        width: calc(100% - 20px); 
+        left: 10px; 
+        right: 10px;
+        padding: 20px;
+        @include text ();
+
+        .btns {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .btn.accept {
+                border: 2px solid $darkBg;
+                border-radius: 20px; 
+            }
+
+            button {
+                padding: 0.7em;
+                @include text ();
+                background-color: #d2ad79;
+                border: none;
+                border-radius: 20px;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background-color: $darkBg;
+                color: $primary;
             }
         }
     }
@@ -281,8 +354,8 @@ body {
 
         .footer-top {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
+            grid-template-columns: 1fr;
+            gap: 20px;
             padding: 30px 0;
 
             .bottom-logo-container {
@@ -298,8 +371,7 @@ body {
             }
 
             .footer-navigation {
-                padding: 20px 40px;
-                justify-self: flex-start;
+                justify-self: center;
                 align-self: flex-start;
 
                 h4 {
@@ -369,6 +441,7 @@ body {
             background-color: $lightBg;
 
             iframe {
+                max-width: 100%;
                 width: 100%;
                 height: 250px;
                 border: none;
@@ -384,6 +457,7 @@ body {
 
             p {
                 @include text ();
+                font-size: 15px;
             }
         }
     }
@@ -394,22 +468,33 @@ body {
         grid-template-rows: 50px 60px auto auto auto;
 
         div.first-nav {
-            grid-area: nav-area1;
-            height: 70px;
+        grid-area: nav-area1;
+        height: 70px;
+        flex-direction: row;
+        gap: 20px;
+        justify-content: space-between;
+        align-items: center;
+
+        .contact-info {
             flex-direction: row;
-            gap: 20px;
-            justify-content: space-between;
-            align-items: center;
+            gap: 10px;
+            padding: 0;
+            margin-left: 20px;
 
-            .contact-info {
-                flex-direction: row;
-                gap: 10px;
-                padding: 0;
-                margin-left: 20px;
+            li:first-of-type {
+                border-right: 1px solid #4e3b2b;
+                padding-right: 10px;
+            }
+        }
 
-                li:first-of-type {
-                    border-right: 1px solid #4e3b2b;
-                    padding-right: 10px;
+        .brands-icons {
+            display: flex;
+            justify-content: space-around;
+            gap: 10px;
+            margin-right: 20px;
+
+                .fa-brands {
+                    font-size: 1.5rem;
                 }
             }
         }
@@ -428,14 +513,25 @@ body {
 
             .hamburger-main-menu {
                 top: 60px;
+
+                li {
+                    text-align: center;
+                }
+
+                a {
+                    font-size: 1rem;
+                }
+
+                .hamburger-submenu {
+                    left: 60%;
+                }
             }
-        }
 
         footer {
             grid-area: footer-area;
 
             .footer-top {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
     
                 .bottom-logo-container {
                     width: 150px;
@@ -447,6 +543,7 @@ body {
                 }
 
                 .footer-navigation:hover {
+
                     cursor: pointer;
                 }
             }
@@ -457,9 +554,9 @@ body {
 @media screen and (min-width:768px) {
     body {
         grid: 
-        "nav-area1" 30px
+        "nav-area1" 50px
         "nav-area2" 70px
-        "header-area" 500px
+        "header-area" auto
         "main-area" auto
         "footer-area" auto
         / 100%
@@ -479,13 +576,19 @@ body {
 
             .hamburger-main-menu {
                 top: 70px;
-            }
-        }
 
+                li a {
+                    font-size: 1rem;
+                }
+            }
+
+        }
+        
         footer {
             grid-area: footer-area;
 
             .footer-top {
+                grid-template-columns: 1fr 1fr;
     
                 .bottom-logo-container {
                     width: 200px;
@@ -497,19 +600,23 @@ body {
                 }
 
                 .footer-navigation:hover {
+
                     cursor: pointer;
                 }
             }
         }
+    }
+
+
     }    
 }
 
 @media screen and (min-width:992px) {
     body {
         grid: 
-        "nav-area1" 30px
+        "nav-area1" 50px
         "nav-area2" 80px
-        "header-area" 500px
+        "header-area" auto
         "main-area" auto
         "footer-area" auto
         / 100%
@@ -529,6 +636,10 @@ body {
 
             .hamburger-main-menu {
                 top: 80px;
+
+                li a {
+                    font-size: 1.2rem;
+                }
             }
         }
 
@@ -562,6 +673,7 @@ body {
                 }
 
                 .footer-navigation:hover {
+
                     cursor: pointer;
                 }
             }
@@ -579,9 +691,9 @@ body {
 @media screen and (min-width:1200px) {
     body {
         grid: 
-        "nav-area1" 30px
+        "nav-area1" 50px
         "nav-area2" 90px
-        "header-area" 600px
+        "header-area" auto
         "main-area" auto
         "footer-area" auto
         / 100%
@@ -666,7 +778,7 @@ body {
             .hamburger-menu {
                 display: none;
             }
-        
+      
             .hamburger-main-menu {
                 display: none;
             }
@@ -682,7 +794,7 @@ body {
                 align-items: flex-start;
                 justify-self: auto;
                 padding: 30px 0;
-
+   
                 .bottom-logo-container {
                     width: 300px;
                     height: 280px;
@@ -704,6 +816,7 @@ body {
                 }
 
                 .footer-navigation:hover {
+
                     cursor: pointer;
                 }
             }

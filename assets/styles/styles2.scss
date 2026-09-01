@@ -1,15 +1,9 @@
+/*Minden kezelés oldal stílusa*/
 @use "reset" as *;
 @use "mixin" as *;
 @use "css-variables" as *;
 
 body {
-    grid: 
-    "nav-area1" 30px
-    "nav-area2" 50px
-    "main-area" auto
-    "footer-area" auto
-    / 100%
-    ;
 
     main {
         padding: 40px 0;
@@ -42,6 +36,7 @@ body {
             gap: 20px;
             background-color: $darkBg;
             background-image: linear-gradient(to right, $secondary, $primary);
+            box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.405);
 
             h3 {
                 @include mainTitle ();
@@ -55,7 +50,7 @@ body {
             }
 
             div {
-                width: 350px;
+                width: 70%;
                 height: 220px;
                 padding: 0 30px 20px 30px;
                 display: flex;
@@ -63,7 +58,10 @@ body {
                 align-items: center;
 
                 img {
+                    object-fit: cover;
+                    width: 100%;
                     height: 100%;
+                    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.405);
                 }
             }
         }
@@ -73,55 +71,40 @@ body {
 
 @media screen and (min-width:576px) {
     body {
-        grid: 
-        "nav-area1" 30px
-        "nav-area2" 60px
-        "main-area" auto
-        "footer-area" auto
-        / 100%
-        ;
 
-        main {
-            grid-area: main-area;
+        section {
+            div {
+                width: 50%;
+            }
         }
     }
 }
 
 @media screen and (min-width:768px) {
     body {
-        grid: 
-        "nav-area1" 30px
-        "nav-area2" 70px
-        "main-area" auto
-        "footer-area" auto
-        / 100%
-        ;
 
-        main {
-            grid-area: main-area;
+        section {
+
+            div {
+                width: 60%;
+                height: 20rem;
+            }
         }
     }
 }
 
 @media screen and (min-width:992px) {
     body {
-        grid: 
-        "nav-area1" 30px
-        "nav-area2" 80px
-        "main-area" auto
-        "footer-area" auto
-        / 100%
-        ;
 
         main {
-            grid-area: main-area;
 
             section {
                 width: 90%;
                 height: auto;
-                flex-direction: row;
-                justify-content: space-around;
-                gap: 20px;
+                display: grid;
+                grid-template-columns: 1fr 2fr 1fr;
+                grid-template-rows: auto;
+                justify-items: center;
                 background-color: $darkBg;
                 background-image: linear-gradient(to right, $secondary, $primary);
     
@@ -138,12 +121,18 @@ body {
                 }
     
                 div {
-                    width: 400px;
-                    height: 270px;
-                    padding: 20px 30px 20px 30px;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center; 
+                    align-items: center;  
+                    padding: 0;
     
                     img {
-                        height: 100%;
+                        max-width: 90%;
+                        height: auto;
+                        display: block;
+                        object-fit: contain;
                     }
                 }
             }
@@ -157,14 +146,6 @@ body {
 
 @media screen and (min-width:1200px) {
     body {
-        grid: 
-        "nav-area1" 30px
-        "nav-area2" 90px
-        "main-area" auto
-        "footer-area" auto
-        / 100%
-        ;
-
         main {
             grid-area: main-area;
         }

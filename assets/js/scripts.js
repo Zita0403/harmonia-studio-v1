@@ -26,9 +26,9 @@ $(document).ready(function() {
 
 $(window).scroll(function () {
     if ($(window).scrollTop() >= 800) {
-      $(".to-top").css("display", "block");
+      $(".to-top").css({"opacity": "1", "visibility": "visible"});
     } else {
-      $(".to-top").css("display", "none");
+      $(".to-top").css({"opacity": "0", "visibility": "hidden"});
     }
 });
 

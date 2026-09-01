@@ -1,15 +1,9 @@
+/*Időpont foglalás és admin login stílusa*/
 @use "reset" as *;
 @use "mixin" as *;
 @use "css-variables" as *;
 
 body {
-    grid: 
-    "nav-area1" 30px
-    "nav-area2" 50px
-    "main-area" auto
-    "footer-area" auto
-    / 100%
-    ;
 
     main {
         grid-area: main-area;
@@ -32,11 +26,18 @@ body {
             }
         }
 
+        h3 {
+            @include mainTitle ();
+            font-size: 20px;
+            text-align: center;
+        }
+
         form {
             @include text();
             font-size: 1rem;
             max-width: 400px;
             margin: 0 40px;
+            margin-bottom: 2em;
             padding: 1em;
             border: 1px solid $lightBg;
             background-color: $lightBgBlur;
@@ -54,12 +55,16 @@ body {
                     width: 100%;
                     padding: 0.5em;
                     box-sizing: border-box;
+                    border-radius: 0.5rem;
+                    border: none;
                 }
 
                 textarea {
                     width: 100%;
                     height: 150px;
                     resize: none;
+                    border: none;
+                    border-radius: 0.5rem;
                 }
             }
 
@@ -122,13 +127,6 @@ body {
 
 @media screen and (min-width:576px) {
     body {
-        grid: 
-        "nav-area1" 30px
-        "nav-area2" 60px
-        "main-area" auto
-        "footer-area" auto
-        / 100%
-        ;
 
         main {
             grid-area: main-area;
@@ -138,13 +136,6 @@ body {
 
 @media screen and (min-width:768px) {
     body {
-        grid: 
-        "nav-area1" 30px
-        "nav-area2" 70px
-        "main-area" auto
-        "footer-area" auto
-        / 100%
-        ;
 
         main {
             grid-area: main-area;
@@ -154,13 +145,6 @@ body {
 
 @media screen and (min-width:992px) {
     body {
-        grid: 
-        "nav-area1" 30px
-        "nav-area2" 80px
-        "main-area" auto
-        "footer-area" auto
-        / 100%
-        ;
 
         main {
             grid-area: main-area;
@@ -170,13 +154,6 @@ body {
 
 @media screen and (min-width:1200px) {
     body {
-        grid: 
-        "nav-area1" 30px
-        "nav-area2" 90px
-        "main-area" auto
-        "footer-area" auto
-        / 100%
-        ;
 
         main {
             grid-area: main-area;

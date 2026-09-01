@@ -1,3 +1,5 @@
+@charset "UTF-8";
+/*Időpont foglalás és admin login stílusa*/
 /* dm-sans-100 - latin_latin-ext */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
@@ -384,15 +386,30 @@
 }
 * {
   box-sizing: border-box;
+}
+
+html, body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  max-width: 100vw;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  background-image: linear-gradient(to right, #F1CA8C, #935D38, #F1CA8C);
   padding: 0;
   margin: 0;
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
   display: grid;
-  grid: "nav-area1" 30px "nav-area2" 50px "header-area" 300px "main-area" auto "footer-area" auto/100%;
+  grid-template-areas: "nav-area1" "nav-area2" "header-area" "main-area" "footer-area";
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: repeat(5, auto);
 }
 body .to-top {
   position: fixed;
@@ -404,7 +421,9 @@ body .to-top {
   border-radius: 50%;
   background-color: #F1CA8C;
   background-image: linear-gradient(to right, rgba(240, 202, 150, 0.5333333333), rgba(181, 132, 86, 0.5843137255));
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 body .to-top .fa-chevron-up {
   display: inline-block;
@@ -412,7 +431,7 @@ body .to-top .fa-chevron-up {
   background-repeat: no-repeat;
   background-position: center;
   vertical-align: middle;
-  background-image: url(../webfonts/angle-up-solid-full.svg);
+  background-image: url("../webfonts/angle-up-solid-full.svg");
   filter: brightness(0) saturate(100%) invert(22%) sepia(43%) saturate(383%) hue-rotate(346deg) brightness(94%) contrast(93%);
   width: 30px;
   height: 30px;
@@ -427,7 +446,7 @@ body div.first-nav {
   grid-area: nav-area1;
   background-image: linear-gradient(to right, #F1CA8C, #935D38, #F1CA8C);
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
   padding: 0;
   width: 100%;
@@ -460,14 +479,14 @@ body div.first-nav .contact-info li {
   cursor: pointer;
 }
 body div.first-nav .contact-info li:first-of-type {
-  border-right: 1px solid #4e3b2b;
+  border-right: none;
   padding-right: 5px;
 }
 body div.first-nav .brands-icons {
   display: flex;
   justify-content: space-around;
   gap: 10px;
-  margin-right: 20px;
+  margin: 10px 0;
 }
 body div.first-nav .brands-icons i {
   display: inline-block;
@@ -513,8 +532,8 @@ body nav {
 }
 body nav .logo-container-1 {
   margin-left: 20px;
-  width: 50px;
-  height: 50px;
+  width: 65px;
+  height: 65px;
   cursor: pointer;
 }
 body nav .logo-container-1 img {
@@ -532,6 +551,8 @@ body nav .main-menu {
   display: none;
 }
 body nav .hamburger-menu {
+  background: none;
+  border: none;
   display: block;
   margin-right: 20px;
 }
@@ -563,13 +584,13 @@ body nav .hamburger-menu.open .fa-bars {
   display: none;
 }
 body nav .hamburger-menu.open .fa-times {
-  display: inline-block;
+  display: block;
 }
 body nav .hamburger-main-menu {
   padding: 0;
   margin: 0;
   position: absolute;
-  top: 50px;
+  top: 65px;
   left: 0;
   width: 100%;
   display: none;
@@ -577,8 +598,9 @@ body nav .hamburger-main-menu {
   backdrop-filter: blur(5px);
 }
 body nav .hamburger-main-menu li {
-  text-align: center;
+  text-align: start;
   position: relative;
+  padding-left: 20px;
 }
 body nav .hamburger-main-menu li a {
   font-family: "Noto Serif Display", serif;
@@ -590,11 +612,11 @@ body nav .hamburger-main-menu li a {
   display: block;
   padding: 10px;
 }
-body nav .hamburger-main-menu li a .fa-chevron-right {
+body nav .hamburger-main-menu li a .fa-chevron-down {
   display: inline-block;
   width: 24px;
   height: 24px;
-  background-image: url(../webfonts/chevron-right-solid-full.svg);
+  background-image: url(../webfonts/chevron-down-solid-full.svg);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -606,21 +628,81 @@ body nav .hamburger-main-menu > li:hover > a {
   color: bisque;
   transition: all 0.2s ease-in-out;
 }
-body nav .hamburger-main-menu > li:hover > a .fa-chevron-right {
+body nav .hamburger-main-menu > li:hover > a .fa-chevron-down {
   filter: brightness(0) saturate(100%) invert(83%) sepia(35%) saturate(298%) hue-rotate(332deg) brightness(104%) contrast(104%);
   transition: all 0.2s ease-in-out;
 }
 body nav .hamburger-main-menu .hamburger-submenu {
   position: absolute;
   top: 0;
-  left: 60%;
+  left: 50%;
   z-index: 100;
-  width: 200px;
+  width: auto;
   display: none;
 }
 body nav .hamburger-main-menu .hamburger-submenu > li:hover > a {
-  color: rgb(255, 228, 196);
+  color: bisque;
   transition: all 0.2s ease-in-out;
+}
+body nav .hamburger-main-menu .fa-chevron-down {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url(../webfonts/chevron-down-solid-full.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: middle;
+  filter: brightness(0) saturate(100%) invert(0%) sepia(98%) saturate(7%) hue-rotate(319deg) brightness(92%) contrast(98%);
+  padding-left: 10px;
+}
+body nav .hamburger-main-menu.open {
+  display: block;
+}
+body .modal {
+  background-color: #d2ad79;
+  position: fixed;
+  z-index: 100000;
+  bottom: 0;
+  width: calc(100% - 20px);
+  left: 10px;
+  right: 10px;
+  padding: 20px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: justify;
+  line-height: 2em;
+  color: #4e3b2b;
+  font-size: 16px;
+}
+body .modal .btns {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body .modal .btns .btn.accept {
+  border: 2px solid #B58456;
+  border-radius: 20px;
+}
+body .modal .btns button {
+  padding: 0.7em;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: justify;
+  line-height: 2em;
+  color: #4e3b2b;
+  font-size: 16px;
+  background-color: #d2ad79;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+body .modal .btns button:hover {
+  background-color: #B58456;
+  color: #F1CA8C;
 }
 body footer {
   grid-area: footer-area;
@@ -629,8 +711,8 @@ body footer {
 }
 body footer .footer-top {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr;
+  gap: 20px;
   padding: 30px 0;
 }
 body footer .footer-top .bottom-logo-container {
@@ -644,8 +726,7 @@ body footer .footer-top .bottom-logo-container img {
   width: 100%;
 }
 body footer .footer-top .footer-navigation {
-  padding: 20px 40px;
-  justify-self: flex-start;
+  justify-self: center;
   align-self: flex-start;
 }
 body footer .footer-top .footer-navigation h4 {
@@ -712,6 +793,7 @@ body footer .map {
   background-color: #F0CA96;
 }
 body footer .map iframe {
+  max-width: 100%;
   width: 100%;
   height: 250px;
   border: none;
@@ -731,6 +813,7 @@ body footer .footer-bottom p {
   line-height: 2em;
   color: #4e3b2b;
   font-size: 16px;
+  font-size: 15px;
 }
 
 @media screen and (min-width: 576px) {
@@ -755,6 +838,15 @@ body footer .footer-bottom p {
     border-right: 1px solid #4e3b2b;
     padding-right: 10px;
   }
+  body div.first-nav .brands-icons {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin-right: 20px;
+  }
+  body div.first-nav .brands-icons .fa-brands {
+    font-size: 1.5rem;
+  }
   body nav {
     grid-area: nav-area2;
   }
@@ -768,26 +860,35 @@ body footer .footer-bottom p {
   body nav .hamburger-main-menu {
     top: 60px;
   }
-  body footer {
+  body nav .hamburger-main-menu li {
+    text-align: center;
+  }
+  body nav .hamburger-main-menu a {
+    font-size: 1rem;
+  }
+  body nav .hamburger-main-menu .hamburger-submenu {
+    left: 60%;
+  }
+  body nav footer {
     grid-area: footer-area;
   }
-  body footer .footer-top {
-    grid-template-columns: 1fr 1fr;
+  body nav footer .footer-top {
+    grid-template-columns: 1fr;
   }
-  body footer .footer-top .bottom-logo-container {
+  body nav footer .footer-top .bottom-logo-container {
     width: 150px;
     height: 130px;
   }
-  body footer .footer-top .bottom-logo-container img {
+  body nav footer .footer-top .bottom-logo-container img {
     width: 100%;
   }
-  body footer .footer-top .footer-navigation:hover {
+  body nav footer .footer-top .footer-navigation:hover {
     cursor: pointer;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 576px) and (min-width: 768px) {
   body {
-    grid: "nav-area1" 30px "nav-area2" 70px "header-area" 500px "main-area" auto "footer-area" auto/100%;
+    grid: "nav-area1" 50px "nav-area2" 70px "header-area" auto "main-area" auto "footer-area" auto/100%;
   }
   body nav {
     grid-area: nav-area2;
@@ -802,8 +903,14 @@ body footer .footer-bottom p {
   body nav .hamburger-main-menu {
     top: 70px;
   }
+  body nav .hamburger-main-menu li a {
+    font-size: 1rem;
+  }
   body footer {
     grid-area: footer-area;
+  }
+  body footer .footer-top {
+    grid-template-columns: 1fr 1fr;
   }
   body footer .footer-top .bottom-logo-container {
     width: 200px;
@@ -818,7 +925,7 @@ body footer .footer-bottom p {
 }
 @media screen and (min-width: 992px) {
   body {
-    grid: "nav-area1" 30px "nav-area2" 80px "header-area" 500px "main-area" auto "footer-area" auto/100%;
+    grid: "nav-area1" 50px "nav-area2" 80px "header-area" auto "main-area" auto "footer-area" auto/100%;
   }
   body nav {
     grid-area: nav-area2;
@@ -832,6 +939,9 @@ body footer .footer-bottom p {
   }
   body nav .hamburger-main-menu {
     top: 80px;
+  }
+  body nav .hamburger-main-menu li a {
+    font-size: 1.2rem;
   }
   body footer {
     grid-area: footer-area;
@@ -861,7 +971,7 @@ body footer .footer-bottom p {
 }
 @media screen and (min-width: 1200px) {
   body {
-    grid: "nav-area1" 30px "nav-area2" 90px "header-area" 600px "main-area" auto "footer-area" auto/100%;
+    grid: "nav-area1" 50px "nav-area2" 90px "header-area" auto "main-area" auto "footer-area" auto/100%;
   }
   body nav {
     grid-area: nav-area2;
@@ -968,9 +1078,6 @@ body footer .footer-bottom p {
     font-size: 16px;
   }
 }
-body {
-  grid: "nav-area1" 30px "nav-area2" 50px "main-area" auto "footer-area" auto/100%;
-}
 body main {
   grid-area: main-area;
   background-color: #B58456;
@@ -996,6 +1103,15 @@ body main header h1 {
   border-radius: 20px;
   border: 1px solid #F0CA96;
 }
+body main h3 {
+  font-family: "Noto Serif Display", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #4e3b2b;
+  font-size: 24px;
+  font-size: 20px;
+  text-align: center;
+}
 body main form {
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
@@ -1007,6 +1123,7 @@ body main form {
   font-size: 1rem;
   max-width: 400px;
   margin: 0 40px;
+  margin-bottom: 2em;
   padding: 1em;
   border: 1px solid #F0CA96;
   background-color: rgba(240, 202, 150, 0.5333333333);
@@ -1023,11 +1140,15 @@ body main form .form-group input {
   width: 100%;
   padding: 0.5em;
   box-sizing: border-box;
+  border-radius: 0.5rem;
+  border: none;
 }
 body main form .form-group textarea {
   width: 100%;
   height: 150px;
   resize: none;
+  border: none;
+  border-radius: 0.5rem;
 }
 body main form .btn {
   font-family: "DM Sans", sans-serif;
@@ -1089,33 +1210,21 @@ body main .btn:hover {
 }
 
 @media screen and (min-width: 576px) {
-  body {
-    grid: "nav-area1" 30px "nav-area2" 60px "main-area" auto "footer-area" auto/100%;
-  }
   body main {
     grid-area: main-area;
   }
 }
 @media screen and (min-width: 768px) {
-  body {
-    grid: "nav-area1" 30px "nav-area2" 70px "main-area" auto "footer-area" auto/100%;
-  }
   body main {
     grid-area: main-area;
   }
 }
 @media screen and (min-width: 992px) {
-  body {
-    grid: "nav-area1" 30px "nav-area2" 80px "main-area" auto "footer-area" auto/100%;
-  }
   body main {
     grid-area: main-area;
   }
 }
 @media screen and (min-width: 1200px) {
-  body {
-    grid: "nav-area1" 30px "nav-area2" 90px "main-area" auto "footer-area" auto/100%;
-  }
   body main {
     grid-area: main-area;
   }
