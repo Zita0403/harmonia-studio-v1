@@ -72,16 +72,16 @@ body {
             }
 
             .btn {
-                font-size: 1rem;
-                text-align: center;
                 background-color: $primary;
                 border: none;
                 border-radius: 20px;
                 cursor: pointer;
                 width: 100%;
                 padding: 0.7em;
+                font-size: 1rem;
 
                 @include text;
+                text-align: center;
             }
         }
 

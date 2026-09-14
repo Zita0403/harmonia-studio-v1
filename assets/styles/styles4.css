@@ -1156,14 +1156,13 @@ body main form .form-group textarea {
   border-radius: 0.5rem;
 }
 body main form .btn {
-  font-size: 1rem;
-  text-align: center;
   background-color: #F1CA8C;
   border: none;
   border-radius: 20px;
   cursor: pointer;
   width: 100%;
   padding: 0.7em;
+  font-size: 1rem;
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -1171,6 +1170,7 @@ body main form .btn {
   line-height: 2em;
   color: #4e3b2b;
   font-size: 16px;
+  text-align: center;
 }
 body main .button {
   max-width: 400px;
