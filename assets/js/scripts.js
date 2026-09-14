@@ -1,25 +1,23 @@
 // Sütik elfogadása ablak
 
 $(document).ready(function() {
-  // Ellenőrzés: már elfogadta/elutasította a cookie-kat?
-  if (localStorage.getItem("cookieConsent") !== "accepted" && localStorage.getItem("cookieConsent") !== "rejected") {
-      $(".modal").show();
-  } else {
-      $(".modal").hide();
-  }
+    // Ellenőrzés: már elfogadta/elutasította a cookie-kat?
+    if (localStorage.getItem("cookieConsent") !== "accepted" && localStorage.getItem("cookieConsent") !== "rejected") {
+        $(".modal").show();
+    } else {
+        $(".modal").hide();
+    }
 
-  // "Elfogadom" és "Elutasítom" gombokra kattintás
-  $(".btn").on("click", function() {
-      // Döntés alapján beállítás a localStorage-ban
-      if ($(this).hasClass("active")) {
-          localStorage.setItem("cookieConsent", "accepted");
-      } else {
-          localStorage.setItem("cookieConsent", "rejected");
-      }
+    // "Elfogadom" és "Elutasítom" gombokra kattintás
+    $("#accept-cookies").on("click", function() {
+        localStorage.setItem("cookieConsent", "accepted");
+        $(".modal").hide(500);
+    });
 
-      // Felugró ablak elrejtése
-      $(".modal").hide(500);
-  });
+    $("#reject-cookies").on("click", function() {
+        localStorage.setItem("cookieConsent", "rejected");
+        $(".modal").hide(500);
+    });
 });
 
 // A lap tetejére ugrás gomb megjelenítése

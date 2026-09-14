@@ -1,0 +1,19 @@
+{
+  "name": "harmónia-sudio-v1",
+  "version": "1.0.0",
+  "author": "Zita Lukács",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint:html": "htmlhint \"**/*.html\"",
+    "lint:scss": "stylelint \"**/*.scss\" --no-cache",
+    "lint": "npm run lint:html && npm run lint:scss",
+    "purge": "purgecss --content \"./**/*.html\" --css \"./assets/styles/**/*.css\" --output ./assets/styles/cleaned"
+  },
+  "devDependencies": {
+    "htmlhint": "^1.9.2",
+    "purgecss": "^8.0.0",
+    "stylelint": "^17.15.0",
+    "stylelint-config-standard-scss": "^17.0.0"
+  }
+}

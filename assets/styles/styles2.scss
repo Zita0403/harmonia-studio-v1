@@ -1,20 +1,20 @@
-/*Minden kezelés oldal stílusa*/
+/* Minden kezelés oldal stílusa */
 @use "reset" as *;
 @use "mixin" as *;
 @use "css-variables" as *;
 
 body {
-
     main {
         padding: 40px 0;
         grid-area: main-area;
-        background-image: url(../images/facial-bg-1400x1400.jpg);
-        @include bgImg ();
+        background-image: url("../images/facial-bg-1400x1400.jpg");
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
         gap: 40px;
+
+        @include bg-img;
         
         header {
             display: flex;
@@ -22,7 +22,7 @@ body {
             align-items: center;
 
             h1 {
-                @include mainTitle ();
+                @include main-title;
             }
         }
 
@@ -34,25 +34,27 @@ body {
             justify-content: space-evenly;
             align-items: center;
             gap: 20px;
-            background-color: $darkBg;
+            background-color: $dark-bg;
             background-image: linear-gradient(to right, $secondary, $primary);
-            box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.405);
+            box-shadow: 1px 1px 10px rgb(0 0 0 / 40.5%);
 
             h3 {
-                @include mainTitle ();
                 font-size: 20px;
                 text-align: center;
+
+                @include main-title;
             }
 
             p {
-                @include text ();
                 padding: 0 30px;
+
+                @include text;
             }
 
             div {
                 width: 70%;
                 height: 220px;
-                padding: 0 30px 20px 30px;
+                padding: 0 30px 20px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -61,7 +63,7 @@ body {
                     object-fit: cover;
                     width: 100%;
                     height: 100%;
-                    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.405);
+                    box-shadow: 1px 1px 10px rgb(0 0 0 / 40.5%);
                 }
             }
         }
@@ -69,9 +71,8 @@ body {
     }
 }
 
-@media screen and (min-width:576px) {
+@media (width >= 576px) {
     body {
-
         section {
             div {
                 width: 50%;
@@ -80,11 +81,9 @@ body {
     }
 }
 
-@media screen and (min-width:768px) {
+@media (width >=768px) {
     body {
-
         section {
-
             div {
                 width: 60%;
                 height: 20rem;
@@ -93,11 +92,9 @@ body {
     }
 }
 
-@media screen and (min-width:992px) {
+@media (width >= 992px) {
     body {
-
         main {
-
             section {
                 width: 90%;
                 height: auto;
@@ -105,19 +102,21 @@ body {
                 grid-template-columns: 1fr 2fr 1fr;
                 grid-template-rows: auto;
                 justify-items: center;
-                background-color: $darkBg;
+                background-color: $dark-bg;
                 background-image: linear-gradient(to right, $secondary, $primary);
     
                 h3 {
-                    @include mainTitle ();
                     font-size: 20px;
                     text-align: center;
-                    margin-left: 30px
+                    margin-left: 30px;
+
+                    @include main-title;
                 }
     
                 p {
-                    @include text ();
                     padding: 0 30px;
+
+                    @include text;
                 }
     
                 div {
@@ -144,7 +143,7 @@ body {
     }
 }
 
-@media screen and (min-width:1200px) {
+@media (width >= 1200px) {
     body {
         main {
             grid-area: main-area;

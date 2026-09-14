@@ -1,23 +1,24 @@
-/*Home page stílusa*/
+/* Home page stílusa */
 @use "reset" as *;
 @use "mixin" as *;
 @use "css-variables" as *;
 
 body {
-
     header {
         grid-area: header-area;
-        background-color: $lightBg;
-        background-image: url(../images/header-xs.jpg);
-        @include bgImg ();
+        background-color: $light-bg;
+        background-image: url("../images/header-xs.jpg");
         height: 300px;
+
+        @include bg-img;
+
     }
 
     main {
         grid-area: main-area;
 
         .first-section {
-            background-color: $lightBg;
+            background-color: $light-bg;
             padding: 60px 0;
             display: flex;
             flex-direction: column;
@@ -27,21 +28,24 @@ body {
             .salon-img-container {
                 width: 250px;
                 height: 250px;
-                background-color: $darkBg;
-                box-shadow: 35px 25px 10px $darkBg;
+                background-color: $dark-bg;
+                box-shadow: 35px 25px 10px $dark-bg;
                 margin: 30px 0;
             }
 
             .first-salon-img-container {
                 border-radius: 180px 180px 0 0;
-                background-image: url(../images/salon-img-1-lg.jpg);
-                @include bgImg ();
+                background-image: url("../images/salon-img-1-lg.jpg");
+
+                @include bg-img;
+
             }
 
             .second-salon-img-container {
                 border-radius: 0 0 180px 180px;
-                background-image: url(../images/salon-img-2-lg.jpg);
-                @include bgImg ();
+                background-image: url("../images/salon-img-2-lg.jpg");
+
+                @include bg-img;
             }
 
             .welcome {
@@ -62,23 +66,24 @@ body {
                 }
 
                 h1 {
-                    @include mainTitle ();
+                    @include main-title;
                 }
 
                 h3 {
-                    @include titles ();
+                    @include titles;
                 }
             }
         }
 
         .second-section {
-            background-color: $darkBg;
+            background-color: $dark-bg;
             padding: 60px 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-image: url(../images/second-section-bg-xs.jpg);
-            @include bgImg ();
+            background-image: url("../images/second-section-bg-xs.jpg");
+
+            @include bg-img;
 
             > div {
                 background-color: #859b50b7;
@@ -89,8 +94,9 @@ body {
                 display: grid;
 
                 h2 {
-                    @include titles ();
                     text-align: center;
+
+                    @include titles;
                 }
 
                 div {
@@ -100,7 +106,7 @@ body {
                         display: inline-block;
                         width: 24px;
                         height: 24px;
-                        background-image: url(../webfonts/seedling-solid-full.svg);
+                        background-image: url("../webfonts/seedling-solid-full.svg");
                         filter: brightness(0) saturate(100%) invert(22%) sepia(43%) saturate(383%) hue-rotate(346deg) brightness(94%) contrast(93%);
                         background-size: contain;    
                         background-repeat: no-repeat;
@@ -111,15 +117,16 @@ body {
 
                     p {
                         padding: 0 10px;
-                        @include text ();
                         text-align: center;
+
+                        @include text;
                     }
                 }
             }
         }
 
         .third-section {
-            background-color: $darkBg;
+            background-color: $dark-bg;
             display: flex;
             flex-direction: column;
             justify-content: space-around;
@@ -128,11 +135,11 @@ body {
             padding: 60px 0;
 
             h2 {
-                @include titles ();
+                @include titles;
             }
 
             article {
-                background-color: $lightBg;
+                background-color: $light-bg;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-evenly;
@@ -140,11 +147,11 @@ body {
                 width: 80%; 
                 height: auto;
                 padding: 20px;
-                box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.405);
+                box-shadow: 1px 1px 10px rgb(0 0 0 / 40.5%);
 
                 .special-treatments {
-                    margin: 10px 10px;
-                    background-color: $darkBg;
+                    margin: 10px;
+                    background-color: $dark-bg;
                     width: 300px;
                     max-width: 100%;
                     height: 200px;
@@ -154,54 +161,56 @@ body {
                     background-size: cover;
                     background-position: center;
                     border-radius: 10px; 
-                    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.405);
+                    box-shadow: 1px 1px 10px rgb(0 0 0 / 40.5%);
                 }
 
                 .first-special-treatments {
-                    background-image: url(../images/tu-nelkuli-mezoterapia-xs.jpg);
+                    background-image: url("../images/tu-nelkuli-mezoterapia-xs.jpg");
                     background-size: cover;
                     background-position: center;
                 }
 
                 .second-special-treatments {
-                    background-image: url(../images/alakformalo-cellulit-kezeles-xs.jpg);
+                    background-image: url("../images/alakformalo-cellulit-kezeles-xs.jpg");
                     background-size: cover;
                     background-position: center;
                 }
 
                 .third-special-treatments {
-                    background-image: url(../images/lezeres-szortelenites-xs.jpg);
+                    background-image: url("../images/lezeres-szortelenites-xs.jpg");
                     background-size: cover;
                     background-position: center;
                 }
 
                 h3 {
-                    @include titles ();
                     text-align: center;
+
+                    @include titles;
                 }
 
                 .content {
                     width: 100%;
                     height: auto;
-                    background-color: $lightBg;
+                    background-color: $light-bg;
                     padding: 10px;
                     text-align: center;
     
                     p {
-                        @include text ();   
+                        @include text;   
                     }
                 }
             }
         }
 
         .fourth-section {
-            background-color: $darkBg;
+            background-color: $dark-bg;
             padding: 60px 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-image: url(../images/fourth-section-bg-xs.jpg);
-            @include bgImg ();
+            background-image: url("../images/fourth-section-bg-xs.jpg");
+
+            @include bg-img;
 
             > div {
                 background-color: #ffffffb6;
@@ -212,8 +221,9 @@ body {
                 padding: 30px 0;
 
                 h2 {
-                    @include titles ();
                     text-align: center;
+
+                    @include titles;
                 }
 
                 .services {
@@ -248,21 +258,23 @@ body {
                     }
 
                     h3 {
-                        @include titles ();
                         font-size: 16px;
+
+                        @include titles;
                     }
                 }
             }
         }
 
         .fifth-section {
-            background-color: $lightBg;
+            background-color: $light-bg;
             display: grid;
             padding: 60px 0;
 
             h2 {
-                @include titles ();
                 text-align: center;
+
+                @include titles;
             }
 
             .about-section {
@@ -273,9 +285,10 @@ body {
                     width: 200px;
                     height: 200px;
                     border-radius: 50%;
-                    background-image: url(../images/profile.jpg);
-                    @include bgImg ();
-                    box-shadow: 25px 15px 10px $darkBg;
+                    background-image: url("../images/profile.jpg");
+                    box-shadow: 25px 15px 10px $dark-bg;
+
+                    @include bg-img;
                 }
 
                 .about-text {
@@ -283,7 +296,7 @@ body {
                     padding: 30px;
 
                     p {
-                        @include text ();
+                        @include text;
                     }
                 }
             }
@@ -291,12 +304,11 @@ body {
     }
 }
 
-@media screen and (min-width:576px) {
+@media (width >= 576px) {
     body {
-
         header {
             grid-area: header-area;
-            background-image: url(../images/header-sm.jpg);
+            background-image: url("../images/header-sm.jpg");
             height: 400px;
         }
 
@@ -304,17 +316,15 @@ body {
             grid-area: main-area;
 
             .first-section {
-
                 .salon-img-container {
                     width: 350px;
                     height: 350px;
-                    background-color: $darkBg;
-                    box-shadow: 35px 25px 10px $darkBg;
+                    background-color: $dark-bg;
+                    box-shadow: 35px 25px 10px $dark-bg;
                     margin: 30px 0;
                 }
 
                 .welcome {
-
                     .logo-container-2 {
                         width: 120px;
                         height: 80px;
@@ -328,14 +338,15 @@ body {
 
             .second-section {
                 padding: 60px 0;
-                background-image: url(../images/second-section-bg-sm.jpg);
+                background-image: url("../images/second-section-bg-sm.jpg");
     
                 > div {
                     padding: 40px 20px;
     
                     h2 {
-                        @include titles ();
                         text-align: center;
+
+                        @include titles;
                     }
     
                     div {
@@ -347,36 +358,35 @@ body {
     
                         p {
                             padding: 0 10px;
-                            @include text ();
                             text-align: center;
+
+                            @include text;
                         }
                     }
                 }
             }
 
             .third-section {
-    
                 article {
-    
                     .special-treatments {
                         width: 400px;
                         height: 250px;
                     }
 
                     .first-special-treatments {
-                        background-image: url(../images/tu-nelkuli-mezoterapia-sm.jpg);
+                        background-image: url("../images/tu-nelkuli-mezoterapia-sm.jpg");
                         background-size: cover;
                         background-position: center;
                     }
 
                     .second-special-treatments {
-                        background-image: url(../images/alakformalo-cellulit-kezeles-sm.jpg);
+                        background-image: url("../images/alakformalo-cellulit-kezeles-sm.jpg");
                         background-size: cover;
                         background-position: center;
                     }
 
                     .third-special-treatments {
-                        background-image: url(../images/lezeres-szortelenites-sm.jpg);
+                        background-image: url("../images/lezeres-szortelenites-sm.jpg");
                         background-size: cover;
                         background-position: center;
                     }
@@ -384,10 +394,9 @@ body {
             }
 
             .fourth-section {
-                background-image: url(../images/fourth-section-bg-sm.jpg);
+                background-image: url("../images/fourth-section-bg-sm.jpg");
     
                 > div {
-    
                     .services {
                         display: grid;
                         grid-template-columns: 150px 150px;
@@ -409,9 +418,7 @@ body {
             }
 
             .fifth-section {
-    
                 .about-section {
-    
                     .profile-img-container {
                         width: 250px;
                         height: 250px;
@@ -422,20 +429,18 @@ body {
     }    
 }
 
-@media screen and (min-width:768px) {
+@media (width >= 768px) {
     body {
-
         header {
             grid-area: header-area;
-            background-image: url(../images/header-md.jpg);
+            background-image: url("../images/header-md.jpg");
             height: 400px;
         }
 
         main {
             grid-area: main-area;
-
+            
             .first-section {
-
                 .first-salon-img-container {
                     border-radius: 220px 220px 0 0;
                 }
@@ -450,7 +455,6 @@ body {
                 }
 
                 .welcome {
-
                     .logo-container-2 {
                         width: 160px;
                         height: 120px;
@@ -463,37 +467,34 @@ body {
             }
 
             .second-section {
-                background-image: url(../images/second-section-bg-md.jpg);
+                background-image: url("../images/second-section-bg-md.jpg");
 
                 > div {
-
                     padding: 50px 20px;
                 }
             }
 
             .third-section {
-    
                 article {
-    
                     .special-treatments {
                         width: 510px;
                         height: 300px;
                     }
 
                     .first-special-treatments {
-                        background-image: url(../images/tu-nelkuli-mezoterapia-md.jpg);
+                        background-image: url("../images/tu-nelkuli-mezoterapia-md.jpg");
                         background-size: cover;
                         background-position: center;
                     }
 
                     .second-special-treatments {
-                        background-image: url(../images/alakformalo-cellulit-kezeles-md.jpg);
+                        background-image: url("../images/alakformalo-cellulit-kezeles-md.jpg");
                         background-size: cover;
                         background-position: center;
                     }
 
                     .third-special-treatments {
-                        background-image: url(../images/lezeres-szortelenites-md.jpg);
+                        background-image: url("../images/lezeres-szortelenites-md.jpg");
                         background-size: cover;
                         background-position: center;
                     }
@@ -501,11 +502,10 @@ body {
             }
 
             .fourth-section {
-                background-image: url(../images/fourth-section-bg-md.jpg);
+                background-image: url("../images/fourth-section-bg-md.jpg");
 
     
                 > div {
-    
                     .services {
                         grid-template-columns: 200px 200px;
                         grid-template-rows: 225px 225px;
@@ -523,13 +523,11 @@ body {
             }
 
             .fifth-section {
-    
                 h2 {
                     font-size: 24px;
                 }
     
                 .about-section {
-    
                     .profile-img-container {
                         width: 280px;
                         height: 280px;
@@ -540,12 +538,11 @@ body {
     }    
 }
 
-@media screen and (min-width:992px) {
+@media (width >= 992px) {
     body {
-
         header {
             grid-area: header-area;
-            background-image: url(../images/header-lg.jpg);
+            background-image: url("../images/header-lg.jpg");
             height: 500px;
         }
 
@@ -553,7 +550,6 @@ body {
             grid-area: main-area;
 
             .first-section {
-
                 .first-salon-img-container {
                     border-radius: 260px 260px 0 0;
                 }
@@ -569,7 +565,6 @@ body {
                 }
 
                 .welcome {
-    
                     .logo-container-2 {
                         width: 200px;
                         height: 160px;
@@ -590,7 +585,7 @@ body {
             }
 
             .second-section {
-                background-image: url(../images/second-section-bg-lg.jpg);
+                background-image: url("../images/second-section-bg-lg.jpg");
     
                 > div {
                     padding: 60px 0;
@@ -600,7 +595,6 @@ body {
                     }
     
                     div {
-    
                         p {
                             font-size: 14px;
                         }
@@ -609,7 +603,6 @@ body {
             }
 
             .third-section {
-    
                 article {
                     flex-direction: row;
                     justify-content: space-evenly;
@@ -636,10 +629,9 @@ body {
             }
 
             .fourth-section {
-                background-image: url(../images/fourth-section-bg-lg.jpg);
+                background-image: url("../images/fourth-section-bg-lg.jpg");
 
                 > div {
-    
                     h2 {
                         font-size: 22px;
                     }
@@ -666,20 +658,17 @@ body {
             }
 
             .fifth-section {
-    
                 h2 {
                     font-size: 22px;
                 }
     
-                .about-section {
-    
+                .about-section {   
                     .profile-img-container {
                         width: 300px;
                         height: 300px;
                     }
     
                     .about-text {
-
                         p {
                             font-size: 14px; 
                         }
@@ -690,14 +679,14 @@ body {
     }
 }
 
-@media screen and (min-width:1200px) {
+@media (width >= 1200px) {
     body {
-
         header {
             grid-area: header-area;
-            background-image: url(../images/header-xl.jpg);
-            @include bgImg ();
+            background-image: url("../images/header-xl.jpg");
             height: 600px;
+
+            @include bg-img;
         }
 
         main {
@@ -735,6 +724,7 @@ body {
                     h1 {
                         font-size: 26px;
                     }
+                    
                     h3 {
                         font-size: 20px;
                     }
@@ -742,7 +732,7 @@ body {
             }
 
             .second-section {
-                background-image: url(../images/second-section-bg-xl.jpg);
+                background-image: url("../images/second-section-bg-xl.jpg");
                 padding: 100px 0;
 
                 > div {
@@ -763,7 +753,6 @@ body {
             }
 
             .third-section {
-
                 h2 {
                     font-size: 22px;
                 }
@@ -775,7 +764,7 @@ body {
                 article:hover {
                     cursor: pointer;
                     transform: scale(1.1);
-                    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.405);
+                    box-shadow: 8px 8px 10px rgb(0 0 0 / 40.5%);
                 }
 
                 .special-treatments {
@@ -785,7 +774,7 @@ body {
             }
 
             .fourth-section {
-                background-image: url(../images/fourth-section-bg-xl.jpg);
+                background-image: url("../images/fourth-section-bg-xl.jpg");
 
                 > div {
                     padding: 50px;
@@ -813,7 +802,7 @@ body {
                     width: 100px;
                     height: 100px;
                     transition: transform 0.3s ease; 
-                    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.405);
+                    box-shadow: 1px 1px 10px rgb(0 0 0 / 40.5%);
                 }
                 
                 .hover-effect:hover {
@@ -823,7 +812,6 @@ body {
             }
 
             .fifth-section {
-
                 h2 {
                     font-size: 22px;
                 }

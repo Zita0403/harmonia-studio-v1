@@ -1,16 +1,16 @@
-/*Időpont foglalás és admin login stílusa*/
+/* Időpont foglalás és admin login stílusa */
 @use "reset" as *;
 @use "mixin" as *;
 @use "css-variables" as *;
 
 body {
-
     main {
         grid-area: main-area;
-        background-color: $darkBg;
-        background-image: url(../images/booking-bg.jpg);
-        @include bgImg ();
+        background-color: $dark-bg;
+        background-image: url("../images/booking-bg.jpg");
         display: grid;
+
+        @include bg-img;
         
         header {
             margin: 0 40px;
@@ -18,30 +18,33 @@ body {
             max-width: 400px;
             
             h1 {
-                @include mainTitle ();
                 text-align: center;
-                background-color: $lightBgBlur;
+                background-color: $light-bg-blur;
                 border-radius: 20px;
-                border: 1px solid $lightBg;
+                border: 1px solid $light-bg;
+
+                @include main-title;
             }
         }
 
         h3 {
-            @include mainTitle ();
             font-size: 20px;
             text-align: center;
+
+            @include main-title;
         }
 
         form {
-            @include text();
             font-size: 1rem;
             max-width: 400px;
             margin: 0 40px;
             margin-bottom: 2em;
             padding: 1em;
-            border: 1px solid $lightBg;
-            background-color: $lightBgBlur;
+            border: 1px solid $light-bg;
+            background-color: $light-bg-blur;
             border-radius: 20px;
+
+            @include text;
 
             .form-group {
                 margin-bottom: 1em;
@@ -69,7 +72,6 @@ body {
             }
 
             .btn {
-                @include text ();
                 font-size: 1rem;
                 text-align: center;
                 background-color: $primary;
@@ -78,6 +80,8 @@ body {
                 cursor: pointer;
                 width: 100%;
                 padding: 0.7em;
+
+                @include text;
             }
         }
 
@@ -95,9 +99,10 @@ body {
 
             a {
                 text-decoration: none;
-                @include text ();
                 font-size: 1rem;
                 text-align: center;
+
+                @include text;
             }
         }
 
@@ -107,11 +112,11 @@ body {
         
         .hover-effect:hover {
             transform: scale(0.9); 
-            box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.484);
+            box-shadow: 8px 8px 15px rgb(0 0 0 / 48.4%);
         }
 
         .button:hover {
-            background-color: $darkBgBlur;
+            background-color: $dark-bg-blur;
             
             a {
                 color: $primary;
@@ -125,36 +130,32 @@ body {
     }
 }
 
-@media screen and (min-width:576px) {
+@media  (width >= 576px) {
     body {
-
         main {
             grid-area: main-area;
         }
     }
 }
 
-@media screen and (min-width:768px) {
+@media (width >= 768px) {
     body {
-
         main {
             grid-area: main-area;
         }
     }
 }
 
-@media screen and (min-width:992px) {
+@media (width >= 992px) {
     body {
-
         main {
             grid-area: main-area;
         }
     }
 }
 
-@media screen and (min-width:1200px) {
+@media (width >= 1200px) {
     body {
-
         main {
             grid-area: main-area;
         }

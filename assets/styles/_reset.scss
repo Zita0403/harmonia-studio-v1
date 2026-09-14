@@ -24,7 +24,7 @@ body {
     height: auto;
     overflow-x: hidden;
     display: grid;
-    grid-template-areas:
+    grid-template:
         "nav-area1" 
         "nav-area2" 
         "header-area" 
@@ -42,7 +42,7 @@ body {
         border: none;
         border-radius: 50%;
         background-color: #F1CA8C;
-        background-image: linear-gradient(to right, $lightBgBlur, $darkBgBlur);
+        background-image: linear-gradient(to right, $light-bg-blur, $dark-bg-blur);
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -63,7 +63,7 @@ body {
     .to-top:hover {
         cursor: pointer;
         transform: scale(0.9); 
-        box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.363);
+        box-shadow: 8px 8px 10px rgb(0 0 0 / 36.3%);
         transition: 300ms ease;
     }
 
@@ -93,9 +93,10 @@ body {
 
             li {
                 list-style-type: none;
-                @include text ();
                 font-size: 0.9rem;
                 cursor: pointer;
+
+                @include text;
             }
 
             li:first-of-type {
@@ -125,15 +126,15 @@ body {
             }
 
             .fa-facebook {
-                background-image: url(../webfonts/facebook-brands-solid-full.svg);
+                background-image: url("../webfonts/facebook-brands-solid-full.svg");
             }
 
             .fa-pinterest {
-                background-image: url(../webfonts/pinterest-brands-solid-full.svg);
+                background-image: url("../webfonts/pinterest-brands-solid-full.svg");
             }
 
             .fa-square-instagram {
-                background-image: url(../webfonts/square-instagram-brands-solid-full.svg);
+                background-image: url("../webfonts/square-instagram-brands-solid-full.svg");
             }
 
             .fa-facebook:hover {
@@ -207,12 +208,12 @@ body {
             }
 
             .fa-bars {
-                background-image: url(../webfonts/bars-solid-full.svg);
+                background-image: url("../webfonts/bars-solid-full.svg");
                 display: inline-block;
             }
                     
             .fa-times {
-                background-image: url(../webfonts/xmark-solid-full.svg);
+                background-image: url("../webfonts/xmark-solid-full.svg");
                 display: none;
             }
 
@@ -247,16 +248,17 @@ body {
             }
 
             li a {
-                @include nav();
                 font-size: 0.9rem;
                 display: block;
                 padding: 10px;
+
+                @include nav;
 
                 .fa-chevron-down {
                     display: inline-block;
                     width: 24px;
                     height: 24px;
-                    background-image: url(../webfonts/chevron-down-solid-full.svg);
+                    background-image: url("../webfonts/chevron-down-solid-full.svg");
                     background-size: contain;    
                     background-repeat: no-repeat;
                     background-position: center;
@@ -294,7 +296,7 @@ body {
                     display: inline-block;
                     width: 24px;
                     height: 24px;
-                    background-image: url(../webfonts/chevron-down-solid-full.svg);
+                    background-image: url("../webfonts/chevron-down-solid-full.svg");
                     background-size: contain;    
                     background-repeat: no-repeat;
                     background-position: center;
@@ -318,30 +320,40 @@ body {
         left: 10px; 
         right: 10px;
         padding: 20px;
-        @include text ();
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        place-self: start center;
+
+        @include text;
+
+        #cookie-title {
+            font-size: 20px;
+        }
 
         .btns {
-            margin-top: 30px;
+            margin-top: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
 
-            .btn.accept {
-                border: 2px solid $darkBg;
+            .btn.active {
+                border: 2px solid $dark-bg;
                 border-radius: 20px; 
             }
 
             button {
                 padding: 0.7em;
-                @include text ();
                 background-color: #d2ad79;
                 border: none;
                 border-radius: 20px;
                 cursor: pointer;
+
+                @include text;
             }
 
             button:hover {
-                background-color: $darkBg;
+                background-color: $dark-bg;
                 color: $primary;
             }
         }
@@ -349,7 +361,7 @@ body {
 
     footer {
         grid-area: footer-area;
-        background-color: $lightBg;
+        background-color: $light-bg;
         display: grid;
 
         .footer-top {
@@ -361,8 +373,7 @@ body {
             .bottom-logo-container {
                 width: 100px;
                 height: 80px;
-                justify-self: center;
-                align-self: center;
+                place-self: center;
                 cursor: pointer;
 
                 img {
@@ -371,13 +382,13 @@ body {
             }
 
             .footer-navigation {
-                justify-self: center;
-                align-self: flex-start;
+                place-self: start center;
 
                 h4 {
-                    @include titles ();
                     text-align: start;
                     font-size: 16px;
+
+                    @include titles;
                 }
         
                 ul {
@@ -385,8 +396,9 @@ body {
                     padding: 0;
         
                     li {
-                        @include text (); 
                         padding: 10px;
+
+                        @include text; 
                     }
                 }
 
@@ -408,13 +420,15 @@ body {
                     }
 
                     .fa-facebook {
-                        background-image: url(../webfonts/facebook-brands-solid-full.svg);
+                        background-image: url("../webfonts/facebook-brands-solid-full.svg");
                     }
+
                     .fa-pinterest {
-                        background-image: url(../webfonts/pinterest-brands-solid-full.svg);
+                        background-image: url("../webfonts/pinterest-brands-solid-full.svg");
                     }
+
                     .fa-square-instagram {
-                        background-image: url(../webfonts/square-instagram-brands-solid-full.svg);
+                        background-image: url("../webfonts/square-instagram-brands-solid-full.svg");
                     }
         
                     .fa-facebook:hover {
@@ -432,13 +446,12 @@ body {
             }
 
             .footer-navigation:hover {
-                
                 cursor: pointer;
             }
         }
 
         .map {
-            background-color: $lightBg;
+            background-color: $light-bg;
 
             iframe {
                 max-width: 100%;
@@ -449,21 +462,22 @@ body {
         }
 
         .footer-bottom {
-            background-color: $darkBg;
+            background-color: $dark-bg;
             background-image: linear-gradient(to right, $primary, $secondary, $primary);
             display: flex;
             justify-content: center;
             align-items: center;
 
             p {
-                @include text ();
                 font-size: 15px;
+
+                @include text;
             }
         }
     }
 }
 
-@media screen and (min-width:576px) {
+@media (width >= 576px) {
     body {
         grid-template-rows: 50px 60px auto auto auto;
 
@@ -543,7 +557,6 @@ body {
                 }
 
                 .footer-navigation:hover {
-
                     cursor: pointer;
                 }
             }
@@ -551,7 +564,7 @@ body {
     }    
 }
 
-@media screen and (min-width:768px) {
+@media (width >= 768px) {
     body {
         grid: 
         "nav-area1" 50px
@@ -600,7 +613,6 @@ body {
                 }
 
                 .footer-navigation:hover {
-
                     cursor: pointer;
                 }
             }
@@ -611,7 +623,7 @@ body {
     }    
 }
 
-@media screen and (min-width:992px) {
+@media (width >= 992px) {
     body {
         grid: 
         "nav-area1" 50px
@@ -659,13 +671,11 @@ body {
                 }
     
                 .footer-navigation {
-    
                     h4 {
                         font-size: 20px;
                     }
             
                     ul {
-            
                         li {
                             font-size: 14px;
                         }
@@ -673,13 +683,11 @@ body {
                 }
 
                 .footer-navigation:hover {
-
                     cursor: pointer;
                 }
             }
     
             .footer-bottom {
-    
                 p {
                     font-size: 16px;
                 }
@@ -688,7 +696,7 @@ body {
     }
 }
 
-@media screen and (min-width:1200px) {
+@media (width >= 1200px) {
     body {
         grid: 
         "nav-area1" 50px
@@ -731,10 +739,11 @@ body {
                     height: 90px;
 
                     a {
-                        @include nav();
                         display: block;
                         padding: 20px;
                         align-self: center;
+
+                        @include nav;
                     }
                 }
 
@@ -805,7 +814,6 @@ body {
                 }
 
                 .footer-navigation {
-
                     h4 {
                         font-size: 20px;
                     }
@@ -816,13 +824,11 @@ body {
                 }
 
                 .footer-navigation:hover {
-
                     cursor: pointer;
                 }
             }
 
             .footer-bottom {
-                
                 p {
                     font-size: 16px;
                 }

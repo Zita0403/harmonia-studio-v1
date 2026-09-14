@@ -1,26 +1,26 @@
-/*Árlista stílusa*/
+/* Árlista stílusa */
 @use "reset" as *;
 @use "mixin" as *;
 @use "css-variables" as *;
 
 body {
-
     main {
         padding: 40px 0;
         grid-area: main-area;
-        background-image: url(../images/facial-bg-1400x1400.jpg);
-        @include bgImg ();
+        background-image: url("../images/facial-bg-1400x1400.jpg");
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
         gap: 40px;
+
+        @include bg-img;
         
         .price-list {
             width: 80%;
             padding: 1em;
-            border: 1px solid $lightBg;
-            background-color: $lightBgBlur;
+            border: 1px solid $light-bg;
+            background-color: $light-bg-blur;
             border-radius: 20px;
             display: grid;
             background-position: center;
@@ -33,14 +33,15 @@ body {
                 align-items: center;
 
                 h1 {
-                    @include mainTitle ();
+                    @include main-title;
                 }
             }
 
             .tables {
                 display: grid;
                 justify-items: center;
-                @include text ();
+
+                @include text;
 
                 table {
                     width: 100%;
@@ -48,24 +49,24 @@ body {
                     border-spacing: 10px;
 
                     th {
-                        background-color: $lightBg;
+                        background-color: $light-bg;
                         width: 100%;
                         padding: 8px;
-                        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.405);
+                        box-shadow: 1px 1px 10px rgb(0 0 0 / 40.5%);
                     }
                     
                     tr td:nth-child(1) {
-                        background-color: $darkBg;
+                        background-color: $dark-bg;
                         width: 70%;
                         padding: 8px;
-                        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.405);
+                        box-shadow: 1px 1px 10px rgb(0 0 0 / 40.5%);
                     }
                     
                     tr td:nth-child(2) {
                         background-color: $primary;
                         width: 30%;
                         padding: 8px;
-                        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.405);
+                        box-shadow: 1px 1px 10px rgb(0 0 0 / 40.5%);
                     }
                 }
 
@@ -78,9 +79,8 @@ body {
     }
 }
 
-@media screen and (min-width:576px) {
+@media (width >= 576px) {
     body {
-
         main {
             grid-area: main-area;
 
@@ -91,9 +91,8 @@ body {
     }
 }
 
-@media screen and (min-width:768px) {
+@media (width >= 768px) {
     body {
-
         main {
             grid-area: main-area;
 
@@ -104,9 +103,8 @@ body {
     }
 }
 
-@media screen and (min-width:992px) {
+@media (width >= 992px) {
     body {
-
         main {
             grid-area: main-area;
 
@@ -117,9 +115,8 @@ body {
     }
 }
 
-@media screen and (min-width:1200px) {
+@media (width >= 1200px) {
     body {
-
         main {
             grid-area: main-area;
 

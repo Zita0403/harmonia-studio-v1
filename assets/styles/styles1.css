@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/*Home page stílusa*/
+/* Home page stílusa */
 /* dm-sans-100 - latin_latin-ext */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
@@ -407,7 +407,7 @@ body {
   height: auto;
   overflow-x: hidden;
   display: grid;
-  grid-template-areas: "nav-area1" "nav-area2" "header-area" "main-area" "footer-area";
+  grid-template: "nav-area1" "nav-area2" "header-area" "main-area" "footer-area";
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: repeat(5, auto);
 }
@@ -468,6 +468,8 @@ body div.first-nav .contact-info {
 }
 body div.first-nav .contact-info li {
   list-style-type: none;
+  font-size: 0.9rem;
+  cursor: pointer;
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -475,8 +477,6 @@ body div.first-nav .contact-info li {
   line-height: 2em;
   color: #4e3b2b;
   font-size: 16px;
-  font-size: 0.9rem;
-  cursor: pointer;
 }
 body div.first-nav .contact-info li:first-of-type {
   border-right: none;
@@ -502,13 +502,13 @@ body div.first-nav .brands-icons i {
   filter: brightness(0) saturate(100%) invert(0%) sepia(98%) saturate(7%) hue-rotate(319deg) brightness(92%) contrast(98%);
 }
 body div.first-nav .brands-icons .fa-facebook {
-  background-image: url(../webfonts/facebook-brands-solid-full.svg);
+  background-image: url("../webfonts/facebook-brands-solid-full.svg");
 }
 body div.first-nav .brands-icons .fa-pinterest {
-  background-image: url(../webfonts/pinterest-brands-solid-full.svg);
+  background-image: url("../webfonts/pinterest-brands-solid-full.svg");
 }
 body div.first-nav .brands-icons .fa-square-instagram {
-  background-image: url(../webfonts/square-instagram-brands-solid-full.svg);
+  background-image: url("../webfonts/square-instagram-brands-solid-full.svg");
 }
 body div.first-nav .brands-icons .fa-facebook:hover {
   filter: brightness(0) saturate(100%) invert(35%) sepia(83%) saturate(3403%) hue-rotate(203deg) brightness(100%) contrast(90%);
@@ -570,11 +570,11 @@ body nav .hamburger-menu .fa-times {
   filter: brightness(0) saturate(100%) invert(0%) sepia(98%) saturate(7%) hue-rotate(319deg) brightness(92%) contrast(98%);
 }
 body nav .hamburger-menu .fa-bars {
-  background-image: url(../webfonts/bars-solid-full.svg);
+  background-image: url("../webfonts/bars-solid-full.svg");
   display: inline-block;
 }
 body nav .hamburger-menu .fa-times {
-  background-image: url(../webfonts/xmark-solid-full.svg);
+  background-image: url("../webfonts/xmark-solid-full.svg");
   display: none;
 }
 body nav .hamburger-menu .fa-bars:hover, body nav .hamburger-menu .fa-times:hover {
@@ -603,20 +603,20 @@ body nav .hamburger-main-menu li {
   padding-left: 20px;
 }
 body nav .hamburger-main-menu li a {
+  font-size: 0.9rem;
+  display: block;
+  padding: 10px;
   font-family: "Noto Serif Display", serif;
   font-weight: 400;
   font-style: normal;
   color: black;
   font-size: 18px;
-  font-size: 0.9rem;
-  display: block;
-  padding: 10px;
 }
 body nav .hamburger-main-menu li a .fa-chevron-down {
   display: inline-block;
   width: 24px;
   height: 24px;
-  background-image: url(../webfonts/chevron-down-solid-full.svg);
+  background-image: url("../webfonts/chevron-down-solid-full.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -648,7 +648,7 @@ body nav .hamburger-main-menu .fa-chevron-down {
   display: inline-block;
   width: 24px;
   height: 24px;
-  background-image: url(../webfonts/chevron-down-solid-full.svg);
+  background-image: url("../webfonts/chevron-down-solid-full.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -668,6 +668,10 @@ body .modal {
   left: 10px;
   right: 10px;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  place-self: start center;
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -676,18 +680,25 @@ body .modal {
   color: #4e3b2b;
   font-size: 16px;
 }
+body .modal #cookie-title {
+  font-size: 20px;
+}
 body .modal .btns {
-  margin-top: 30px;
+  margin-top: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-body .modal .btns .btn.accept {
+body .modal .btns .btn.active {
   border: 2px solid #B58456;
   border-radius: 20px;
 }
 body .modal .btns button {
   padding: 0.7em;
+  background-color: #d2ad79;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -695,10 +706,6 @@ body .modal .btns button {
   line-height: 2em;
   color: #4e3b2b;
   font-size: 16px;
-  background-color: #d2ad79;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
 }
 body .modal .btns button:hover {
   background-color: #B58456;
@@ -718,31 +725,30 @@ body footer .footer-top {
 body footer .footer-top .bottom-logo-container {
   width: 100px;
   height: 80px;
-  justify-self: center;
-  align-self: center;
+  place-self: center;
   cursor: pointer;
 }
 body footer .footer-top .bottom-logo-container img {
   width: 100%;
 }
 body footer .footer-top .footer-navigation {
-  justify-self: center;
-  align-self: flex-start;
+  place-self: start center;
 }
 body footer .footer-top .footer-navigation h4 {
+  text-align: start;
+  font-size: 16px;
   font-family: "Playfair Display", serif;
   font-weight: 400;
   font-style: normal;
   color: #4e3b2b;
   font-size: 18px;
-  text-align: start;
-  font-size: 16px;
 }
 body footer .footer-top .footer-navigation ul {
   list-style-type: none;
   padding: 0;
 }
 body footer .footer-top .footer-navigation ul li {
+  padding: 10px;
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -750,7 +756,6 @@ body footer .footer-top .footer-navigation ul li {
   line-height: 2em;
   color: #4e3b2b;
   font-size: 16px;
-  padding: 10px;
 }
 body footer .footer-top .footer-navigation .brands-icons {
   display: flex;
@@ -769,13 +774,13 @@ body footer .footer-top .footer-navigation .brands-icons i {
   filter: brightness(0) saturate(100%) invert(0%) sepia(98%) saturate(7%) hue-rotate(319deg) brightness(92%) contrast(98%);
 }
 body footer .footer-top .footer-navigation .brands-icons .fa-facebook {
-  background-image: url(../webfonts/facebook-brands-solid-full.svg);
+  background-image: url("../webfonts/facebook-brands-solid-full.svg");
 }
 body footer .footer-top .footer-navigation .brands-icons .fa-pinterest {
-  background-image: url(../webfonts/pinterest-brands-solid-full.svg);
+  background-image: url("../webfonts/pinterest-brands-solid-full.svg");
 }
 body footer .footer-top .footer-navigation .brands-icons .fa-square-instagram {
-  background-image: url(../webfonts/square-instagram-brands-solid-full.svg);
+  background-image: url("../webfonts/square-instagram-brands-solid-full.svg");
 }
 body footer .footer-top .footer-navigation .brands-icons .fa-facebook:hover {
   filter: brightness(0) saturate(100%) invert(35%) sepia(83%) saturate(3403%) hue-rotate(203deg) brightness(100%) contrast(90%);
@@ -806,6 +811,7 @@ body footer .footer-bottom {
   align-items: center;
 }
 body footer .footer-bottom p {
+  font-size: 15px;
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -813,10 +819,9 @@ body footer .footer-bottom p {
   line-height: 2em;
   color: #4e3b2b;
   font-size: 16px;
-  font-size: 15px;
 }
 
-@media screen and (min-width: 576px) {
+@media (width >= 576px) {
   body {
     grid-template-rows: 50px 60px auto auto auto;
   }
@@ -886,7 +891,7 @@ body footer .footer-bottom p {
     cursor: pointer;
   }
 }
-@media screen and (min-width: 576px) and (min-width: 768px) {
+@media (width >= 576px) and (width >= 768px) {
   body {
     grid: "nav-area1" 50px "nav-area2" 70px "header-area" auto "main-area" auto "footer-area" auto/100%;
   }
@@ -923,7 +928,7 @@ body footer .footer-bottom p {
     cursor: pointer;
   }
 }
-@media screen and (min-width: 992px) {
+@media (width >= 992px) {
   body {
     grid: "nav-area1" 50px "nav-area2" 80px "header-area" auto "main-area" auto "footer-area" auto/100%;
   }
@@ -969,7 +974,7 @@ body footer .footer-bottom p {
     font-size: 16px;
   }
 }
-@media screen and (min-width: 1200px) {
+@media (width >= 1200px) {
   body {
     grid: "nav-area1" 50px "nav-area2" 90px "header-area" auto "main-area" auto "footer-area" auto/100%;
   }
@@ -1002,14 +1007,14 @@ body footer .footer-bottom p {
     height: 90px;
   }
   body nav .main-menu li a {
+    display: block;
+    padding: 20px;
+    align-self: center;
     font-family: "Noto Serif Display", serif;
     font-weight: 400;
     font-style: normal;
     color: black;
     font-size: 18px;
-    display: block;
-    padding: 20px;
-    align-self: center;
   }
   body nav .main-menu > li:hover > a {
     color: bisque;
@@ -1081,11 +1086,11 @@ body footer .footer-bottom p {
 body header {
   grid-area: header-area;
   background-color: #F0CA96;
-  background-image: url(../images/header-xs.jpg);
+  background-image: url("../images/header-xs.jpg");
+  height: 300px;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 300px;
 }
 body main {
   grid-area: main-area;
@@ -1107,14 +1112,14 @@ body main .first-section .salon-img-container {
 }
 body main .first-section .first-salon-img-container {
   border-radius: 180px 180px 0 0;
-  background-image: url(../images/salon-img-1-lg.jpg);
+  background-image: url("../images/salon-img-1-lg.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 body main .first-section .second-salon-img-container {
   border-radius: 0 0 180px 180px;
-  background-image: url(../images/salon-img-2-lg.jpg);
+  background-image: url("../images/salon-img-2-lg.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1154,7 +1159,7 @@ body main .second-section {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(../images/second-section-bg-xs.jpg);
+  background-image: url("../images/second-section-bg-xs.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1168,12 +1173,12 @@ body main .second-section > div {
   display: grid;
 }
 body main .second-section > div h2 {
+  text-align: center;
   font-family: "Playfair Display", serif;
   font-weight: 400;
   font-style: normal;
   color: #4e3b2b;
   font-size: 18px;
-  text-align: center;
 }
 body main .second-section > div div {
   display: grid;
@@ -1182,7 +1187,7 @@ body main .second-section > div div .fa-seedling {
   display: inline-block;
   width: 24px;
   height: 24px;
-  background-image: url(../webfonts/seedling-solid-full.svg);
+  background-image: url("../webfonts/seedling-solid-full.svg");
   filter: brightness(0) saturate(100%) invert(22%) sepia(43%) saturate(383%) hue-rotate(346deg) brightness(94%) contrast(93%);
   background-size: contain;
   background-repeat: no-repeat;
@@ -1192,6 +1197,7 @@ body main .second-section > div div .fa-seedling {
 }
 body main .second-section > div div p {
   padding: 0 10px;
+  text-align: center;
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -1199,7 +1205,6 @@ body main .second-section > div div p {
   line-height: 2em;
   color: #4e3b2b;
   font-size: 16px;
-  text-align: center;
 }
 body main .third-section {
   background-color: #B58456;
@@ -1229,7 +1234,7 @@ body main .third-section article {
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.405);
 }
 body main .third-section article .special-treatments {
-  margin: 10px 10px;
+  margin: 10px;
   background-color: #B58456;
   width: 300px;
   max-width: 100%;
@@ -1243,27 +1248,27 @@ body main .third-section article .special-treatments {
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.405);
 }
 body main .third-section article .first-special-treatments {
-  background-image: url(../images/tu-nelkuli-mezoterapia-xs.jpg);
+  background-image: url("../images/tu-nelkuli-mezoterapia-xs.jpg");
   background-size: cover;
   background-position: center;
 }
 body main .third-section article .second-special-treatments {
-  background-image: url(../images/alakformalo-cellulit-kezeles-xs.jpg);
+  background-image: url("../images/alakformalo-cellulit-kezeles-xs.jpg");
   background-size: cover;
   background-position: center;
 }
 body main .third-section article .third-special-treatments {
-  background-image: url(../images/lezeres-szortelenites-xs.jpg);
+  background-image: url("../images/lezeres-szortelenites-xs.jpg");
   background-size: cover;
   background-position: center;
 }
 body main .third-section article h3 {
+  text-align: center;
   font-family: "Playfair Display", serif;
   font-weight: 400;
   font-style: normal;
   color: #4e3b2b;
   font-size: 18px;
-  text-align: center;
 }
 body main .third-section article .content {
   width: 100%;
@@ -1287,7 +1292,7 @@ body main .fourth-section {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(../images/fourth-section-bg-xs.jpg);
+  background-image: url("../images/fourth-section-bg-xs.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1301,12 +1306,12 @@ body main .fourth-section > div {
   padding: 30px 0;
 }
 body main .fourth-section > div h2 {
+  text-align: center;
   font-family: "Playfair Display", serif;
   font-weight: 400;
   font-style: normal;
   color: #4e3b2b;
   font-size: 18px;
-  text-align: center;
 }
 body main .fourth-section > div .services {
   display: grid;
@@ -1337,12 +1342,12 @@ body main .fourth-section > div .services a {
   align-items: center;
 }
 body main .fourth-section > div .services h3 {
+  font-size: 16px;
   font-family: "Playfair Display", serif;
   font-weight: 400;
   font-style: normal;
   color: #4e3b2b;
   font-size: 18px;
-  font-size: 16px;
 }
 body main .fifth-section {
   background-color: #F0CA96;
@@ -1350,12 +1355,12 @@ body main .fifth-section {
   padding: 60px 0;
 }
 body main .fifth-section h2 {
+  text-align: center;
   font-family: "Playfair Display", serif;
   font-weight: 400;
   font-style: normal;
   color: #4e3b2b;
   font-size: 18px;
-  text-align: center;
 }
 body main .fifth-section .about-section {
   display: grid;
@@ -1365,11 +1370,11 @@ body main .fifth-section .about-section .profile-img-container {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background-image: url(../images/profile.jpg);
+  background-image: url("../images/profile.jpg");
+  box-shadow: 25px 15px 10px #B58456;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  box-shadow: 25px 15px 10px #B58456;
 }
 body main .fifth-section .about-section .about-text {
   justify-self: center;
@@ -1385,10 +1390,10 @@ body main .fifth-section .about-section .about-text p {
   font-size: 16px;
 }
 
-@media screen and (min-width: 576px) {
+@media (width >= 576px) {
   body header {
     grid-area: header-area;
-    background-image: url(../images/header-sm.jpg);
+    background-image: url("../images/header-sm.jpg");
     height: 400px;
   }
   body main {
@@ -1410,18 +1415,18 @@ body main .fifth-section .about-section .about-text p {
   }
   body main .second-section {
     padding: 60px 0;
-    background-image: url(../images/second-section-bg-sm.jpg);
+    background-image: url("../images/second-section-bg-sm.jpg");
   }
   body main .second-section > div {
     padding: 40px 20px;
   }
   body main .second-section > div h2 {
+    text-align: center;
     font-family: "Playfair Display", serif;
     font-weight: 400;
     font-style: normal;
     color: #4e3b2b;
     font-size: 18px;
-    text-align: center;
   }
   body main .second-section > div div {
     display: grid;
@@ -1431,6 +1436,7 @@ body main .fifth-section .about-section .about-text p {
   }
   body main .second-section > div div p {
     padding: 0 10px;
+    text-align: center;
     font-family: "DM Sans", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -1438,29 +1444,28 @@ body main .fifth-section .about-section .about-text p {
     line-height: 2em;
     color: #4e3b2b;
     font-size: 16px;
-    text-align: center;
   }
   body main .third-section article .special-treatments {
     width: 400px;
     height: 250px;
   }
   body main .third-section article .first-special-treatments {
-    background-image: url(../images/tu-nelkuli-mezoterapia-sm.jpg);
+    background-image: url("../images/tu-nelkuli-mezoterapia-sm.jpg");
     background-size: cover;
     background-position: center;
   }
   body main .third-section article .second-special-treatments {
-    background-image: url(../images/alakformalo-cellulit-kezeles-sm.jpg);
+    background-image: url("../images/alakformalo-cellulit-kezeles-sm.jpg");
     background-size: cover;
     background-position: center;
   }
   body main .third-section article .third-special-treatments {
-    background-image: url(../images/lezeres-szortelenites-sm.jpg);
+    background-image: url("../images/lezeres-szortelenites-sm.jpg");
     background-size: cover;
     background-position: center;
   }
   body main .fourth-section {
-    background-image: url(../images/fourth-section-bg-sm.jpg);
+    background-image: url("../images/fourth-section-bg-sm.jpg");
   }
   body main .fourth-section > div .services {
     display: grid;
@@ -1482,10 +1487,10 @@ body main .fifth-section .about-section .about-text p {
     height: 250px;
   }
 }
-@media screen and (min-width: 768px) {
+@media (width >= 768px) {
   body header {
     grid-area: header-area;
-    background-image: url(../images/header-md.jpg);
+    background-image: url("../images/header-md.jpg");
     height: 400px;
   }
   body main {
@@ -1509,7 +1514,7 @@ body main .fifth-section .about-section .about-text p {
     width: 100%;
   }
   body main .second-section {
-    background-image: url(../images/second-section-bg-md.jpg);
+    background-image: url("../images/second-section-bg-md.jpg");
   }
   body main .second-section > div {
     padding: 50px 20px;
@@ -1519,22 +1524,22 @@ body main .fifth-section .about-section .about-text p {
     height: 300px;
   }
   body main .third-section article .first-special-treatments {
-    background-image: url(../images/tu-nelkuli-mezoterapia-md.jpg);
+    background-image: url("../images/tu-nelkuli-mezoterapia-md.jpg");
     background-size: cover;
     background-position: center;
   }
   body main .third-section article .second-special-treatments {
-    background-image: url(../images/alakformalo-cellulit-kezeles-md.jpg);
+    background-image: url("../images/alakformalo-cellulit-kezeles-md.jpg");
     background-size: cover;
     background-position: center;
   }
   body main .third-section article .third-special-treatments {
-    background-image: url(../images/lezeres-szortelenites-md.jpg);
+    background-image: url("../images/lezeres-szortelenites-md.jpg");
     background-size: cover;
     background-position: center;
   }
   body main .fourth-section {
-    background-image: url(../images/fourth-section-bg-md.jpg);
+    background-image: url("../images/fourth-section-bg-md.jpg");
   }
   body main .fourth-section > div .services {
     grid-template-columns: 200px 200px;
@@ -1555,10 +1560,10 @@ body main .fifth-section .about-section .about-text p {
     height: 280px;
   }
 }
-@media screen and (min-width: 992px) {
+@media (width >= 992px) {
   body header {
     grid-area: header-area;
-    background-image: url(../images/header-lg.jpg);
+    background-image: url("../images/header-lg.jpg");
     height: 500px;
   }
   body main {
@@ -1589,7 +1594,7 @@ body main .fifth-section .about-section .about-text p {
     font-size: 20px;
   }
   body main .second-section {
-    background-image: url(../images/second-section-bg-lg.jpg);
+    background-image: url("../images/second-section-bg-lg.jpg");
   }
   body main .second-section > div {
     padding: 60px 0;
@@ -1621,7 +1626,7 @@ body main .fifth-section .about-section .about-text p {
     flex-direction: row-reverse;
   }
   body main .fourth-section {
-    background-image: url(../images/fourth-section-bg-lg.jpg);
+    background-image: url("../images/fourth-section-bg-lg.jpg");
   }
   body main .fourth-section > div h2 {
     font-size: 22px;
@@ -1652,14 +1657,14 @@ body main .fifth-section .about-section .about-text p {
     font-size: 14px;
   }
 }
-@media screen and (min-width: 1200px) {
+@media (width >= 1200px) {
   body header {
     grid-area: header-area;
-    background-image: url(../images/header-xl.jpg);
+    background-image: url("../images/header-xl.jpg");
+    height: 600px;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 600px;
   }
   body main {
     grid-area: main-area;
@@ -1695,7 +1700,7 @@ body main .fifth-section .about-section .about-text p {
     font-size: 20px;
   }
   body main .second-section {
-    background-image: url(../images/second-section-bg-xl.jpg);
+    background-image: url("../images/second-section-bg-xl.jpg");
     padding: 100px 0;
   }
   body main .second-section > div {
@@ -1726,7 +1731,7 @@ body main .fifth-section .about-section .about-text p {
     height: 400px;
   }
   body main .fourth-section {
-    background-image: url(../images/fourth-section-bg-xl.jpg);
+    background-image: url("../images/fourth-section-bg-xl.jpg");
   }
   body main .fourth-section > div {
     padding: 50px;
