@@ -1,27 +1,32 @@
+import $ from 'jquery';
 // Sütik elfogadása ablak
-
-$(document).ready(function() {
+export function initCookieConsent(storage, modalSelector) {
     // Ellenőrzés: már elfogadta/elutasította a cookie-kat?
-    if (localStorage.getItem("cookieConsent") !== "accepted" && localStorage.getItem("cookieConsent") !== "rejected") {
-        $(".modal").show();
+    if (storage.getItem("cookieConsent") !== "accepted" && storage.getItem("cookieConsent") !== "rejected") {
+        modalSelector.show();
     } else {
-        $(".modal").hide();
+        modalSelector.hide();
     }
 
     // "Elfogadom" és "Elutasítom" gombokra kattintás
     $("#accept-cookies").on("click", function() {
-        localStorage.setItem("cookieConsent", "accepted");
-        $(".modal").hide(500);
+        storage.setItem("cookieConsent", "accepted");
+        modalSelector.hide(500);
+        // modalSelector.hide(); // Teszteléshez
     });
 
     $("#reject-cookies").on("click", function() {
-        localStorage.setItem("cookieConsent", "rejected");
-        $(".modal").hide(500);
+        storage.setItem("cookieConsent", "rejected");
+        modalSelector.hide(500);
+        // modalSelector.hide(); // Teszteléshez
     });
+}
+
+$(document).ready(function() {
+    initCookieConsent(localStorage, $(".modal"));
 });
 
 // A lap tetejére ugrás gomb megjelenítése
-
 $(window).scroll(function () {
     if ($(window).scrollTop() >= 800) {
       $(".to-top").css({"opacity": "1", "visibility": "visible"});
@@ -89,9 +94,3 @@ $(".service").on("touchend", function() {
       boxShadow: "none"
     }, 300);
 });
-
-
-
-
-
-

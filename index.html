@@ -9,7 +9,13 @@
     <meta name="author" content="Lukács Zita">
     <link rel="icon" href="./logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="./assets/styles/styles1.css">
-    <script src="./assets/js/jQuery.js"></script>
+        <script type="importmap">
+        {
+            "imports": {
+                "jquery": "./assets/js/jQuery.js"
+            }
+        }
+    </script>
 </head>
 <body>
     <!-- Lap tetejére ugrás -->
@@ -256,6 +262,6 @@
             <p>© 2024 Harmónia Stúdió. All Right Reserved.</p>
         </div>
     </footer>
-    <script src="./assets/js/scripts.js"></script>
+    <script type="module" src="./assets/js/scripts.js"></script>
 </body>
 </html>
